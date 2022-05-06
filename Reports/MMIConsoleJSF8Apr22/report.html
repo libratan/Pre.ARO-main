@@ -1,0 +1,2198 @@
+<html xmlns:graph="graph" xmlns:results="results">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <style type="text/css">
+    BODY,P,OL,TD,pre{font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;color: #000000;}
+    A:link {font-family: Arial, Helvetica, sans-serif;font-style: normal;color: #990000;text-decoration: none;}
+    A:active {font-family: Arial, Helvetica, sans-serif;font-style: normal;color: #990000;text-decoration: none;}
+    A:visited {font-family: Arial, Helvetica, sans-serif;font-style: normal;color: #999999;text-decoration: none;}
+    A:hover {font-family: Arial, Helvetica, sans-serif;font-style: normal;color: #990000;text-decoration: underline;}
+    A.gray_link:link {font-family: Arial;font-size: 12px;color: #666666;text-decoration: none;}
+    A.gray_link:active {font-family: Arial;font-size: 12px;color: #666666;text-decoration: none;}
+    A.gray_link:visited {font-family: Arial;font-size: 12px;color: #666666;text-decoration: none;}
+    A.gray_link:hover {font-family: Arial;font-size: 12px;color: #666666;text-decoration: underline;}
+    A.red_link:link {font-family: Arial;font-size: 12px;color: #990000;text-decoration: none;}
+    A.red_link:active {font-family: Arial;font-size: 12px;color: #990000;text-decoration: none;}
+    A.red_link:visited {font-family: Arial;font-size: 12px;color: #990000;text-decoration: none;}
+    A.red_link:hover {font-family: Arial;font-size: 12px;color: #990000;text-decoration: underline;}
+    A.green_link:link {font-family: Arial;font-size: 12px;color: #008040;text-decoration: none;}
+    A.green_link:active {font-family: Arial;font-size: 12px;color: #008040;text-decoration: none;}
+    A.green_link:visited {font-family: Arial;font-size: 12px;color: #008040;text-decoration: none;}
+    A.green_link:hover {font-family: Arial;font-size: 12px;color: #008040;text-decoration: underline;}
+    A.black_link:link {font-family: Arial;font-size: 12px;color: #000000;text-decoration: none;}
+    A.black_link:active {font-family: Arial;font-size: 12px;color: #000000;text-decoration: none;}
+    A.black_link:visited {font-family: Arial;font-size: 12px;color: #000000;text-decoration: none;}
+    A.black_link:hover {font-family: Arial;font-size: 12px;color: #000000;text-decoration: underline;}
+    
+    A.blue_link:link {font-family: Arial;font-size: 12px;color: #427fb6;text-decoration: none;}
+    A.blue_link:active {font-family: Arial;font-size: 12px;color: #427fb6;text-decoration: none;}
+    A.blue_link:visited {font-family: Arial;font-size: 12px;color: #427fb6;text-decoration: none;}
+    A.blue_link:hover {font-family: Arial;font-size: 12px;color: #427fb6;text-decoration: underline;}
+    
+    A.gray_red_link:link {font-family: Arial;font-size: 12px;color: #666666;text-decoration: none;}
+    A.gray_red_link:active {font-family: Arial;font-size: 12px;color: #666666;text-decoration: none;}
+    A.gray_red_link:visited {font-family: Arial;font-size: 12px;color: #666666;text-decoration: none;}
+    A.gray_red_link:hover {font-family: Arial;font-size: 12px;color: #666666;text-decoration: none;}
+    DIV.suite_details{margin-left: 40px; padding: 10px; border: 2px solid #99aaaa;}
+    DIV.test_comment{color:#666666;}
+    DIV.header{font-size: 32px; FONT-FAMILY: Arial, Helvetica, sans-serif; COLOR: #427fb6 }
+    DIV.small_header{font-size: 18px; FONT-FAMILY: Arial, Helvetica, sans-serif; COLOR: #427fb6 }    
+    FONT.gray {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #999999;}    
+    FONT.gray2, FONT.gray_red {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #666666;}
+    FONT.white {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #FFFFFF;}
+    FONT.time {font-size: 11px;font-family: Arial, Helvetica, sans-serif;color: #000000;}
+    FONT.black {font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;color: #000000;}
+    FONT.red {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #990000;}
+    FONT.red2 {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #990000; text-decoration: underline;}
+    FONT.blue {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #427fb6;}
+    FONT.green {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #008040;}
+    FONT.orange {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #F69500;}
+    FONT.goldenrod {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #DAA520;}    
+    FONT.small {font-size: 3px;font-family: Arial, Helvetica, sans-serif;color: #cccccc;}
+    IMG.screenshot{float:left; margin-right: 20px; border:1px solid black;}
+    SELECT.cs_authors {font-family: Arial, Helvetica, sans-serif;font-size: 12px;}  
+    SELECT.ju_authors {font-family: Arial, Helvetica, sans-serif;font-size: 12px;}  
+    SPAN.toggle_button{width: 16px; padding-right: 2px; display: inline-block;} 
+    TD.associations{vertical-align: top;}
+    TD.collapse_controls{text-align:right;}
+    TD.cs_authors{font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;color: #000000;border: 1px; bordercolor: #d9c8ac;}
+    TD.error{background-color:#ffeeee}
+    TD.errorsingleborder{background-color:#ffeeee;border:1px solid #CBCBCB}
+    TD.singleborder{ border:1px solid #CBCBCB}
+    TABLE.header{background-color:#FFFFFF}
+    TABLE.singleborder{ border:1px solid #CBCBCB}
+    TABLE.doubleborder{ border:2px solid #CBCBCB}     
+    TABLE.singleborder_blue{ border:2px solid #427fb6}
+    TD.fixed_width{width: 150px;}
+    TD.no_error{}
+    TD.suite_details{padding:2px; }
+    UL.metrics {font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;color: #000000; list-style-type: none; margin: 0; padding-left:12px;}
+    UL.root {font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;color: #000000; list-style-type: none; margin: 0; padding-left:0px; margin-left:3px;}
+    UL {font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;color: #000000; list-style-type: none; margin: 0; padding-left:0px; margin-left:12px;}
+    LI {font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;color: #000000; list-style-type: none; margin: 0; padding-left: 0px;}
+    #foldheader{cursor:pointer;cursor:hand ;}
+    #cs_foldheader{cursor:pointer;cursor:hand ;}
+    #metrics_foldheader{cursor:pointer;cursor:hand ;}
+    #exec_foldheader{cursor:pointer;cursor:hand ;}
+    #paramsHeader {word-break:break-all;overflow: auto; padding: 3px;}
+    </style><title>C++test&nbsp;Report&nbsp;[2020-07-28T20:34:31+08:00]
+
+</title><script language="JavaScript">
+    var nwin;    
+    function openWin (loc_to_open) {    
+       if (!nwin || nwin.closed) {
+          nwin = window.open(loc_to_open,'');
+       } else {
+          nwin.location = loc_to_open;
+       }
+       nwin.focus();
+    }
+    function openDevReport (dev_rep_name) {
+       openWin('&id=' + dev_rep_name);
+    }
+    </script><script language="JavaScript">
+    function sortBySeverity(urgent){
+    if(urgent != null)  {
+        sev=document.getElementById("cs_sevtrue");
+        sev_link=document.getElementById("cs_link_sevtrue");
+        sev_title=document.getElementById("cs_title_sevtrue");
+    } else {
+        sev=document.getElementById("cs_sev");
+        sev_link=document.getElementById("cs_link_sev");
+        sev_title=document.getElementById("cs_title_sev");
+    }   
+    if(sev != null) sev.style.display='block';
+    if(sev_title != null) sev_title.style.display='block';
+    if(sev_link != null) {
+    sev_link.style.color="#666666";  
+    sev_link.style.textDecoration="none";
+    }
+    if(urgent != null)  {
+        cat=document.getElementById("cs_cattrue");
+        cat_link=document.getElementById("cs_link_cattrue");
+        cat_title=document.getElementById("cs_title_cattrue");
+    } else {
+        cat=document.getElementById("cs_cat");
+        cat_link=document.getElementById("cs_link_cat");
+        cat_title=document.getElementById("cs_title_cat");
+    }   
+    if(cat != null) cat.style.display='none';
+    if(cat_title != null) cat_title.style.display='none';
+    if(cat_link != null) {
+    cat_link.style.color="#990000";
+    cat_link.style.textDecoration="underline";
+    }
+    }
+    
+    function sortByCategory(urgent){
+    if(urgent != null)  {
+        sev=document.getElementById("cs_sevtrue");
+        sev_link=document.getElementById("cs_link_sevtrue");
+        sev_title=document.getElementById("cs_title_sevtrue");
+    } else {
+        sev=document.getElementById("cs_sev");
+        sev_link=document.getElementById("cs_link_sev");
+        sev_title=document.getElementById("cs_title_sev");
+    }
+    if(sev != null) sev.style.display='none';
+    if(sev_title != null) sev_title.style.display='none';
+    if(sev_link != null) { 
+    sev_link.style.color="#990000";   
+    sev_link.style.textDecoration="underline";
+    }       
+    if(urgent != null)  {
+        cat=document.getElementById("cs_cattrue");
+        cat_link=document.getElementById("cs_link_cattrue");
+        cat_title=document.getElementById("cs_title_cattrue");
+    } else {
+        cat=document.getElementById("cs_cat");
+        cat_link=document.getElementById("cs_link_cat");
+        cat_title=document.getElementById("cs_title_cat");
+    }
+    if(cat != null) cat.style.display='block';
+    if(cat_title != null) cat_title.style.display='block';
+    if(cat_link != null) { 
+    cat_link.style.color="#666666"; 
+    cat_link.style.textDecoration="none";
+    }
+    }
+    </script><script language="JavaScript">
+    var ns6=document.getElementById && !document.all
+    var ie4=document.all && navigator.userAgent.indexOf("Opera")==-1
+
+    function checkcontained(e)
+    {
+       cur=ns6 ? e.target : event.srcElement;
+       
+       checkFor("foldinglist", "foldheader", cur);
+       checkFor("cs_foldinglist", "cs_foldheader", cur);
+       checkFor("metrics_foldinglist", "metrics_foldheader", cur);
+       checkFor("exec_foldinglist", "exec_foldheader", cur);
+    }
+    
+    function checkFor(foldinglist, foldheader, cur)
+    {
+        var iscontained=0;
+        i = 0;
+        if (cur.id==foldheader) {
+           iscontained=1;
+        } 
+        while (ns6 && cur.parentNode || (ie4 && cur.parentElement)) {
+             if (cur.id==foldheader||cur.id==foldinglist){
+                iscontained=(cur.id==foldheader)? 1 : 0;
+                break;
+             }
+             cur=ns6? cur.parentNode : cur.parentElement;
+        }
+
+        if (iscontained) {
+           var foldercontent=ns6? cur.nextSibling.nextSibling : cur.all.tags("UL")[0];
+           if (foldercontent.style.display=="none"){
+               foldercontent.style.display="";
+           } else {
+               foldercontent.style.display="none";
+           }
+        }    
+    }
+    function expandCSDetails() {
+       expandCollapseAll("cs_foldinglist", true);
+    }
+
+    function collapseCSDetails() {
+       expandCollapseAll("cs_foldinglist", false);
+    }
+
+    function expandMetricsDetails() {
+    expandCollapseAll("metrics_foldinglist", true);
+    }
+
+    function collapseMetricsDetails() {
+    expandCollapseAll("metrics_foldinglist", false);
+    }
+
+    function expandExecDetails() {
+       expandCollapseAll("exec_foldinglist", true);
+    }
+
+    function collapseExecDetails() {
+       expandCollapseAll("exec_foldinglist", false);
+    }
+    
+    function expandCollapseAll(foldinglistID, collapse) 
+    {
+        if (document.getElementById && document.createElement) {
+            m = document.getElementById(foldinglistID).getElementsByTagName('ul');
+            var i;
+            for (i = 0; i < m.length; i++) {
+              if (collapse) {
+                 m[i].style.display='block';
+              } else {
+                 m[i].style.display='none';
+              }
+            }
+        }
+    }
+
+     if (ie4||ns6) {
+       document.onclick=checkcontained;
+    }
+
+    
+    function expandViolation(headerID, violationID, startIndex)
+    {
+        var violation = document.getElementById(violationID);
+        var m = document.getElementById(headerID).getElementsByTagName('td');
+
+        if (violation.style.display === '') {
+            violation.style.display = 'none';
+            for (i = startIndex; i < m.length; i++) {
+                m[i].style.backgroundColor = "#FFFFFF";
+            }
+        }
+        else{
+            violation.style.display = '';
+            for (i = startIndex; i < m.length; i++) {
+                m[i].style.backgroundColor = "#E0E0E0";
+            }
+        }
+    }
+    </script></head>
+<body bgcolor="#E7F0F5">
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<table xmlns:textutil="textutil" xmlns:authors="authors" width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td bgcolor="#3965A6" background="rep_header_expander.jpg" height="80px" width="30%" align="left"><img src="rep_header_logo.png" alt="rep_header_logo.png" height="54px"></td>
+<td bgcolor="#3965A6" background="rep_header_expander.jpg" height="80px" width="40%" align="center"><img src="rep_header_3.png" alt="rep_header_3.png" height="54px"></td>
+<td bgcolor="#3965A6" background="rep_header_expander.jpg" height="80px" width="30%" align="center"></td>
+</tr>
+</table>
+<table width="100%" style="padding-left:25px;padding-right:25px;padding-bottom:25px;padding-top:0px" cellspacing="0">
+<tr>
+<td align="center">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="padding-left:20px" align="left" width="20%"></td>
+<td style="padding:10px" align="center" width="60%">
+<table align="center" width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center">Builtin configuration:
+	    		&nbsp;<b>Joint Strike Fighter</b></td>
+</tr>
+<tr>
+<td width="16%" align="center"><font class="time">2020-07-28T20:34:31+08:00</font></td>
+</tr>
+</table>
+</td>
+<td style="padding-right:20px" align="right" width="20%"></td>
+</tr>
+</table>
+<table width="100%" class="singleborder_blue" style="padding-left:25px;padding-right:25px;padding-bottom:25px;padding-top:5px" cellspacing="0" bgcolor="#FFFFFF" bordercolor="#A0CAEC">
+<tr>
+<td><br xmlns:textutil="textutil"><a xmlns:textutil="textutil" name="cs"></a><table xmlns:textutil="textutil" class="header" width="100%" border="0" bordercolor="#CBCBCB" cellpadding="0" cellspacing="0">
+<tr>
+<td width="15%"></td>
+<td align="center">
+<div class="header">STATIC ANALYSIS</div>
+</td>
+<td width="15%" align="right" valign="bottom"></td>
+</tr>
+</table><br xmlns:textutil="textutil"><table xmlns:textutil="textutil" width="100%" border="0" bordercolor="#CBCBCB" cellpadding="0" cellspacing="0">
+<tr>
+<td width="80%">
+<table width="100%" class="singleborder" border="0" bordercolor="#CBCBCB" cellpadding="0" cellspacing="0">
+<tr>
+<td class="singleborder" width="40%" align="center" bgcolor="#F3F3F3" rowspan="2"><b>Project Name</b><br>&nbsp;
+</td>
+<td class="singleborder" align="center" bgcolor="#F3F3F3" colspan="3">&nbsp;<b>Tasks</b>&nbsp;
+</td>
+<td class="singleborder" align="center" bgcolor="#F3F3F3" colspan="2">&nbsp;<b>Files</b></td>
+<td class="singleborder" align="center" bgcolor="#F3F3F3" colspan="2">&nbsp;<b>Lines</b></td>
+</tr>
+<tr>
+<td class="singleborder" align="center" bgcolor="#F3F3F3">suppressed</td>
+<td class="singleborder" align="center" bgcolor="#F3F3F3">total</td>
+<td class="singleborder" align="center" bgcolor="#F3F3F3">per 10,000 lines</td>
+<td class="singleborder" align="center" bgcolor="#F3F3F3">checked</td>
+<td class="singleborder" align="center" bgcolor="#F3F3F3">total</td>
+<td class="singleborder" align="center" bgcolor="#F3F3F3">checked</td>
+<td class="singleborder" align="center" bgcolor="#F3F3F3">total</td>
+</tr>
+<tr>
+<td class="singleborder" align="left">&nbsp;MMIConsoleApp</td>
+<td class="singleborder" align="right">&nbsp;0&nbsp;</td>
+<td class="singleborder" align="right">7539&nbsp;</td>
+<td class="singleborder" align="right">7025&nbsp;</td>
+<td class="singleborder" align="right">&nbsp;36&nbsp;</td>
+<td class="singleborder" align="right">36&nbsp;</td>
+<td class="singleborder" align="right">&nbsp;10731&nbsp;</td>
+<td class="singleborder" align="right">10731&nbsp;</td>
+</tr>
+<tr>
+<td class="singleborder" align="left">&nbsp;<b>Total</b> [0:04:00]
+
+</td>
+<td class="singleborder" align="right">&nbsp;<b>0</b>&nbsp;
+</td>
+<td class="singleborder" align="right">&nbsp;<b>7539</b>&nbsp;
+</td>
+<td class="singleborder" align="right">&nbsp;<b>7025</b>&nbsp;
+</td>
+<td class="singleborder" align="right"><b>36</b>&nbsp;
+</td>
+<td class="singleborder" align="right"><b>36</b>&nbsp;
+</td>
+<td class="singleborder" align="right"><b>10731</b>&nbsp;
+</td>
+<td class="singleborder" align="right"><b>10731</b>&nbsp;
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br xmlns:textutil="textutil"><table xmlns:textutil="textutil" width="100%" border="0" bordercolor="#CBCBCB" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<table width="100%" border="0" bordercolor="#CBCBCB" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<table class="header" width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td width="30%">&nbsp;</td>
+<td align="center">
+<div class="small_header" id="cs_title_cat" style="display:block;">All Tasks&nbsp;by Category</div>
+<div class="small_header" id="cs_title_sev" style="display:none;">All Tasks&nbsp;by Severity</div>
+</td>
+<td align="right" width="30%"><font class="gray2">by:</font>&nbsp;&nbsp;&nbsp;<a xmlns:authors="authors" id="cs_link_cat" class="gray_red_link" href="javascript:sortByCategory()">Category</a>&nbsp;&nbsp;&nbsp;<a xmlns:authors="authors" id="cs_link_sev" class="gray_red_link" href="javascript:sortBySeverity()">Severity</a>&nbsp;&nbsp;&nbsp;
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align="left">
+<div id="cs_cat" style="display:block;">
+<table width="100%" class="doubleborder" cellpadding="0" cellspacing="0" bordercolor="#CBCBCB">
+<tr>
+<td>&nbsp;
+[<b>7539</b>]
+&nbsp;&nbsp;<b>Joint Strike Fighter</b>&nbsp;<font class="gray">(JSF)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>5</b>]
+&nbsp;&nbsp;All functions shall have a cyclomatic complexity number of 20 or less&nbsp;<font class="gray">(JSF-003-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>14</b>]
+&nbsp;&nbsp;Follow the Essential Complexity limit of 1&nbsp;<font class="gray">(JSF-003_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>43</b>]
+&nbsp;&nbsp;Ensure that array indices are within the bounds of the array&nbsp;<font class="gray">(JSF-015-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>6</b>]
+&nbsp;&nbsp;The input/output library &lt;stdio.h&gt; shall not be used&nbsp;<font class="gray">(JSF-022-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;The library function 'exit' of &lt;stdlib.h&gt; shall not be used&nbsp;<font class="gray">(JSF-024_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>18</b>]
+&nbsp;&nbsp;Only the following pre-processor directives shall be used: #ifndef, #define, #endif, #include&nbsp;<font class="gray">(JSF-026-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;The #define pre-processor directive shall not be used to create inline macros&nbsp;<font class="gray">(JSF-029-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>19</b>]
+&nbsp;&nbsp;The #define pre-processor directive shall not be used to define constant values&nbsp;<font class="gray">(JSF-030-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>71</b>]
+&nbsp;&nbsp;The #include directive shall use the &lt;filename.h&gt; notation to include header files&nbsp;<font class="gray">(JSF-033-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>319</b>]
+&nbsp;&nbsp;Identifiers for constant and enumerator values shall be lowercase&nbsp;<font class="gray">(JSF-052-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>4</b>]
+&nbsp;&nbsp;The following character sequences shall not appear in header file names: ', \, /*, //, or " &nbsp;<font class="gray">(JSF-053.1-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>12</b>]
+&nbsp;&nbsp;The statements forming the body of a 'while', 'do...while', 'switch' or 'for' statement shall always be enclosed in braces&nbsp;<font class="gray">(JSF-059_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>69</b>]
+&nbsp;&nbsp;The statements forming the body of an 'if', 'else if' or 'else' statement shall always be enclosed in braces&nbsp;<font class="gray">(JSF-059_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>5</b>]
+&nbsp;&nbsp;All member variables shall be initialized in constructor&nbsp;<font class="gray">(JSF-071_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>12</b>]
+&nbsp;&nbsp;A copy constructor and a copy assignment operator shall be declared for classes that contain pointers to data items or nontrivial
+destructors&nbsp;<font class="gray">(JSF-076-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;An assignment operator shall return a reference to *this&nbsp;<font class="gray">(JSF-082-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Multiple inheritance shall not use any public implementations&nbsp;<font class="gray">(JSF-088_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;An inherited nonvirtual function shall not be redefined in a derived class&nbsp;<font class="gray">(JSF-094-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>7</b>]
+&nbsp;&nbsp;Arrays shall not be used in interfaces&nbsp;<font class="gray">(JSF-097-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>320</b>]
+&nbsp;&nbsp;Arrays shall not be passed to functions as array/pointer parameters&nbsp;<font class="gray">(JSF-097_d-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>17</b>]
+&nbsp;&nbsp;Functions which are called with array argument shall not be declared with pointer parameter&nbsp;<font class="gray">(JSF-097_e-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;Functions with variable numbers of arguments shall not be used&nbsp;<font class="gray">(JSF-108-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;Functions shall not call themselves, either directly or indirectly&nbsp;<font class="gray">(JSF-119-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>7</b>]
+&nbsp;&nbsp;Only valid C++ style comments (//) shall be used&nbsp;<font class="gray">(JSF-126-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>36</b>]
+&nbsp;&nbsp;Code that is not used (commented out) shall be deleted&nbsp;<font class="gray">(JSF-127-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Identifier declared in a local or function prototype scope shall not hide an identifier declared in a global or namespace
+scope&nbsp;<font class="gray">(JSF-135_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>33</b>]
+&nbsp;&nbsp;Identifiers declared in a local scope shall not hide identifiers declared in a class scope&nbsp;<font class="gray">(JSF-135_c-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>4</b>]
+&nbsp;&nbsp;All variables shall be initialized before use&nbsp;<font class="gray">(JSF-142_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>35</b>]
+&nbsp;&nbsp;Enumeration types shall be used instead of integer types (and constants) to select from a limited series of choices&nbsp;<font class="gray">(JSF-148-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;The right hand operand of a &amp;&amp; or || operator shall not contain side effects&nbsp;<font class="gray">(JSF-157-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>98</b>]
+&nbsp;&nbsp;The operands of a logical &amp;&amp; or || shall be parenthesized if the operands contain binary operators&nbsp;<font class="gray">(JSF-158-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;An assignment expression shall be used only as the expression in an expression statement&nbsp;<font class="gray">(JSF-160-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Signed and unsigned values shall not be mixed in arithmetic operations&nbsp;<font class="gray">(JSF-162_c-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>81</b>]
+&nbsp;&nbsp;Unsigned arithmetic shall not be used&nbsp;<font class="gray">(JSF-163-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;The comma operator shall not be used&nbsp;<font class="gray">(JSF-168_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;The null pointer shall not be de-referenced&nbsp;<font class="gray">(JSF-174_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>30</b>]
+&nbsp;&nbsp;NULL identifier shall not be used; use plain 0 instead&nbsp;<font class="gray">(JSF-175-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>13</b>]
+&nbsp;&nbsp;Implicit conversions from wider to narrower integral type which may result in a loss of information shall not be used&nbsp;<font class="gray">(JSF-180_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;Avoid implicit conversions from floating to integral type&nbsp;<font class="gray">(JSF-180_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>13</b>]
+&nbsp;&nbsp;Avoid implicit conversions from signed to unsigned type&nbsp;<font class="gray">(JSF-180_e-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;Implicit conversions from integral to floating type which may result in a loss of information shall not be used&nbsp;<font class="gray">(JSF-180_f-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>102</b>]
+&nbsp;&nbsp;Type casting from any type to or from pointers shall not be used&nbsp;<font class="gray">(JSF-182-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;Floating point numbers shall not implicitly be converted to integers&nbsp;<font class="gray">(JSF-184_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>153</b>]
+&nbsp;&nbsp;C-style casts (other than void casts) and functional notation casts (other than explicit constructor calls) shall not be used&nbsp;<font class="gray">(JSF-185-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>9</b>]
+&nbsp;&nbsp;The continue statement shall not be used&nbsp;<font class="gray">(JSF-190-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;The break statement shall not be used (except to terminate the cases of a switch statement)&nbsp;<font class="gray">(JSF-191-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;For any iteration statement there shall be no more than one break or goto statement used for loop termination&nbsp;<font class="gray">(JSF-191_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;Every non-empty case clause in a switch statement shall be terminated with a break statement&nbsp;<font class="gray">(JSF-193-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;All switch statements that do not intend to test for every enumeration value shall contain a final default clause&nbsp;<font class="gray">(JSF-194-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;Floating point variables shall not be tested for exact equality or inequality&nbsp;<font class="gray">(JSF-202-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;A single operation with side-effect shall only be used in the proper context&nbsp;<font class="gray">(JSF-204_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;A call of function with side-effect shall only be used in the proper context&nbsp;<font class="gray">(JSF-204_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>11</b>]
+&nbsp;&nbsp;Dynamic heap memory allocation shall not be used&nbsp;<font class="gray">(JSF-206-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>30</b>]
+&nbsp;&nbsp;C++ exceptions shall not be used&nbsp;<font class="gray">(JSF-208-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1000</b>]
+&nbsp;&nbsp;Typedefs that indicate size and signedness shall be used in place of the basic types&nbsp;<font class="gray">(JSF-209_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>15</b>]
+&nbsp;&nbsp;Algorithms shall not assume particular memory alignment&nbsp;<font class="gray">(JSF-211-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>100</b>]
+&nbsp;&nbsp;Use parenthesis to clarify expression order if operators with precedence lower than arithmetic are used&nbsp;<font class="gray">(JSF-213_e-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Only those characters specified in the C++ basic source character set will be used&nbsp;<font class="gray">(JSF-009-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>29</b>]
+&nbsp;&nbsp;Wide string literals (for example L"abc") will not be used&nbsp;<font class="gray">(JSF-013-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>4</b>]
+&nbsp;&nbsp;#ifndef, #define and #endif will be used to prevent multiple inclusions of the same header file&nbsp;<font class="gray">(JSF-027-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>14</b>]
+&nbsp;&nbsp;The #ifndef and #endif pre-processor directives will only be used to prevent multiple inclusions of the same header file&nbsp;<font class="gray">(JSF-028-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>24</b>]
+&nbsp;&nbsp;The #define pre-processor directive will only be used as part of the technique to prevent multiple inclusions of the same
+header file&nbsp;<font class="gray">(JSF-031-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>4</b>]
+&nbsp;&nbsp;A header file will contain a mechanism that prevents multiple inclusions of itself&nbsp;<font class="gray">(JSF-035-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>9</b>]
+&nbsp;&nbsp;Header files (*.h) will not contain non-const variable definitions or function definitions&nbsp;<font class="gray">(JSF-039_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>97</b>]
+&nbsp;&nbsp;Source lines will be kept to a length of 120 characters or less&nbsp;<font class="gray">(JSF-041-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>10</b>]
+&nbsp;&nbsp;Each expression-statement will be on a separate line&nbsp;<font class="gray">(JSF-042-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Identifiers will not begin with the underscore character "_"&nbsp;<font class="gray">(JSF-047-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>55</b>]
+&nbsp;&nbsp;Identifiers will not differ by mixture of case, the underscore character, interchange of the similarly looking letters and
+numbers&nbsp;<font class="gray">(JSF-048-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>19</b>]
+&nbsp;&nbsp;Begin class, struct, union, enum, and typedef names with an uppercase letter&nbsp;<font class="gray">(JSF-050-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>285</b>]
+&nbsp;&nbsp;Begin local variable names with a lowercase letters&nbsp;<font class="gray">(JSF-051_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>22</b>]
+&nbsp;&nbsp;Begin global variable names with a lowercase letters&nbsp;<font class="gray">(JSF-051_b-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>24</b>]
+&nbsp;&nbsp;Begin member variable names with a lowercase letters&nbsp;<font class="gray">(JSF-051_c-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>4</b>]
+&nbsp;&nbsp;Global function names should start with lowercase&nbsp;<font class="gray">(JSF-051_d-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>140</b>]
+&nbsp;&nbsp;Member function names should start with lowercase&nbsp;<font class="gray">(JSF-051_e-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;The public section of a class will be declared before the protected section and before the private section&nbsp;<font class="gray">(JSF-057_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>122</b>]
+&nbsp;&nbsp;When declaring functions with more than 2 parameters, the leading parenthesis and the first argument are to be written on
+the same line as the function name, each additional argument will be written on a separate line&nbsp;<font class="gray">(JSF-058-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Braces ("{}") which enclose a block will have nothing else on the line except comments&nbsp;<font class="gray">(JSF-060_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>37</b>]
+&nbsp;&nbsp;Braces ("{}") which enclose a block will not have an empty line after "{" nor before "}"&nbsp;<font class="gray">(JSF-060_c-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Braces ("{}") which enclose a block will have nothing else on the line except comments&nbsp;<font class="gray">(JSF-061-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>189</b>]
+&nbsp;&nbsp;The dereference operator '*' and the address-of operator '&amp;' will be directly connected with the type-specifier&nbsp;<font class="gray">(JSF-062-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>27</b>]
+&nbsp;&nbsp;A member function that does not affect the state of an object will be declared const&nbsp;<font class="gray">(JSF-069-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Initialization of nonstatic class members will be performed through the member initialization list rather than through assignment
+in the body of a constructor&nbsp;<font class="gray">(JSF-074-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>22</b>]
+&nbsp;&nbsp;Functions with more than 7 arguments will not be used&nbsp;<font class="gray">(JSF-110-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>89</b>]
+&nbsp;&nbsp;Functions will have a single exit point&nbsp;<font class="gray">(JSF-113-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>222</b>]
+&nbsp;&nbsp;If a function returns error information, then that error information will be tested&nbsp;<font class="gray">(JSF-115-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>743</b>]
+&nbsp;&nbsp;Each variable declaration will be commented&nbsp;<font class="gray">(JSF-132_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>28</b>]
+&nbsp;&nbsp;Each enumeration value will be commented&nbsp;<font class="gray">(JSF-132_c-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>24</b>]
+&nbsp;&nbsp;Each structure member variable will be commented&nbsp;<font class="gray">(JSF-132_d-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>23</b>]
+&nbsp;&nbsp;Every source file will be documented with an introductory comment that provides information on the file&nbsp;<font class="gray">(JSF-133_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>29</b>]
+&nbsp;&nbsp;Every source file will contain copyright information&nbsp;<font class="gray">(JSF-133_b-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>11</b>]
+&nbsp;&nbsp;External objects will not be declared in implementation files&nbsp;<font class="gray">(JSF-139_b-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>16</b>]
+&nbsp;&nbsp;Variables will not be introduced until they can be initialized with meaningful values&nbsp;<font class="gray">(JSF-143-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>7</b>]
+&nbsp;&nbsp;Avoid unused local variables&nbsp;<font class="gray">(JSF-143_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>757</b>]
+&nbsp;&nbsp;Numeric values in code will not be used; symbolic values will be used instead&nbsp;<font class="gray">(JSF-151-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>5</b>]
+&nbsp;&nbsp;Redundant explicit casts will not be used&nbsp;<font class="gray">(JSF-181_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>13</b>]
+&nbsp;&nbsp;All 'if...else if' constructs will contain either a final else clause or a comment indicating why a final else clause is not
+necessary&nbsp;<font class="gray">(JSF-192-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;Every switch statement will have at least two cases and a potential default&nbsp;<font class="gray">(JSF-196-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Null initialize or increment expressions in for loops will not be used; a while loop will be used instead&nbsp;<font class="gray">(JSF-200-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>63</b>]
+&nbsp;&nbsp;Unencapsulated global data will be avoided&nbsp;<font class="gray">(JSF-207-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>8</b>]
+&nbsp;&nbsp;A file should directly include only headers containing declarations and definitions needed to a compilation&nbsp;<font class="gray">(JSF-037-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>175</b>]
+&nbsp;&nbsp;Tabs should be avoided&nbsp;<font class="gray">(JSF-043-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>8</b>]
+&nbsp;&nbsp;Protected data should only be used in structs, not in classes&nbsp;<font class="gray">(JSF-067_b-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Avoid using the friend mechanism&nbsp;<font class="gray">(JSF-070-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>4</b>]
+&nbsp;&nbsp;Hierarchies should be based on abstract classes&nbsp;<font class="gray">(JSF-087-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>65</b>]
+&nbsp;&nbsp;Every nonlocal name, except main(), should be placed in some namespace&nbsp;<font class="gray">(JSF-098-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;Don't write namespace usings in a header file or before an #include&nbsp;<font class="gray">(JSF-100-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>9</b>]
+&nbsp;&nbsp;A function definition should not be placed in a class specification&nbsp;<font class="gray">(JSF-109-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>877</b>]
+&nbsp;&nbsp;Value returned by a function having a non-void return type that is not an overloaded operator shall always be used&nbsp;<font class="gray">(JSF-115_a-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>8</b>]
+&nbsp;&nbsp;Arguments should be passed by reference&nbsp;<font class="gray">(JSF-117-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;An object should be passed as const reference if the function should not change the value of the object&nbsp;<font class="gray">(JSF-117.1-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>20</b>]
+&nbsp;&nbsp;A pointer parameter in a function prototype should be declared as pointer to const if the pointer is not used to modify the
+addressed object&nbsp;<font class="gray">(JSF-118-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>33</b>]
+&nbsp;&nbsp;Only functions with 1 or 2 statements should be considered candidates for inline functions&nbsp;<font class="gray">(JSF-121-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>4</b>]
+&nbsp;&nbsp;Trivial forwarding functions should be inlined&nbsp;<font class="gray">(JSF-124-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>8</b>]
+&nbsp;&nbsp;Pass and return by reference when possible&nbsp;<font class="gray">(JSF-125_a-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>119</b>]
+&nbsp;&nbsp;Document functions in comments that precede function definitions&nbsp;<font class="gray">(JSF-134-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>133</b>]
+&nbsp;&nbsp;Document functions in comments that precede function declarations&nbsp;<font class="gray">(JSF-134_b-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>8</b>]
+&nbsp;&nbsp;Objects should be defined at block scope if they are only accessed from within a single function&nbsp;<font class="gray">(JSF-136_a-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>34</b>]
+&nbsp;&nbsp;Declarations of local variables should be at the smallest feasible scope&nbsp;<font class="gray">(JSF-136_b-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>15</b>]
+&nbsp;&nbsp;All declarations at file scope should be static where possible&nbsp;<font class="gray">(JSF-137-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;Pointers to pointers should be avoided&nbsp;<font class="gray">(JSF-169-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Constructors allowing for conversion should be made explicit&nbsp;<font class="gray">(JSF-177_b-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>60</b>]
+&nbsp;&nbsp;Every possible measure should be taken to avoid type casting&nbsp;<font class="gray">(JSF-183-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>11</b>]
+&nbsp;&nbsp;Avoid using reinterpret_cast&nbsp;<font class="gray">(JSF-183_b-4)</font>&nbsp;
+</td>
+</tr>
+</table>
+</div>
+<div id="cs_sev" style="display:none;">
+<table width="100%" class="doubleborder" cellpadding="0" cellspacing="0" bordercolor="#CBCBCB">
+<tr>
+<td>&nbsp;
+[<b>2756</b>]
+&nbsp;&nbsp;<b>Severity&nbsp;2 - High</b></td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>5</b>]
+&nbsp;&nbsp;All functions shall have a cyclomatic complexity number of 20 or less&nbsp;<font class="gray">(JSF-003-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>14</b>]
+&nbsp;&nbsp;Follow the Essential Complexity limit of 1&nbsp;<font class="gray">(JSF-003_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>43</b>]
+&nbsp;&nbsp;Ensure that array indices are within the bounds of the array&nbsp;<font class="gray">(JSF-015-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>6</b>]
+&nbsp;&nbsp;The input/output library &lt;stdio.h&gt; shall not be used&nbsp;<font class="gray">(JSF-022-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;The library function 'exit' of &lt;stdlib.h&gt; shall not be used&nbsp;<font class="gray">(JSF-024_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>18</b>]
+&nbsp;&nbsp;Only the following pre-processor directives shall be used: #ifndef, #define, #endif, #include&nbsp;<font class="gray">(JSF-026-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;The #define pre-processor directive shall not be used to create inline macros&nbsp;<font class="gray">(JSF-029-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>19</b>]
+&nbsp;&nbsp;The #define pre-processor directive shall not be used to define constant values&nbsp;<font class="gray">(JSF-030-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>71</b>]
+&nbsp;&nbsp;The #include directive shall use the &lt;filename.h&gt; notation to include header files&nbsp;<font class="gray">(JSF-033-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>319</b>]
+&nbsp;&nbsp;Identifiers for constant and enumerator values shall be lowercase&nbsp;<font class="gray">(JSF-052-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>4</b>]
+&nbsp;&nbsp;The following character sequences shall not appear in header file names: ', \, /*, //, or " &nbsp;<font class="gray">(JSF-053.1-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>12</b>]
+&nbsp;&nbsp;The statements forming the body of a 'while', 'do...while', 'switch' or 'for' statement shall always be enclosed in braces&nbsp;<font class="gray">(JSF-059_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>69</b>]
+&nbsp;&nbsp;The statements forming the body of an 'if', 'else if' or 'else' statement shall always be enclosed in braces&nbsp;<font class="gray">(JSF-059_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>5</b>]
+&nbsp;&nbsp;All member variables shall be initialized in constructor&nbsp;<font class="gray">(JSF-071_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>12</b>]
+&nbsp;&nbsp;A copy constructor and a copy assignment operator shall be declared for classes that contain pointers to data items or nontrivial
+destructors&nbsp;<font class="gray">(JSF-076-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;An assignment operator shall return a reference to *this&nbsp;<font class="gray">(JSF-082-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Multiple inheritance shall not use any public implementations&nbsp;<font class="gray">(JSF-088_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;An inherited nonvirtual function shall not be redefined in a derived class&nbsp;<font class="gray">(JSF-094-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>7</b>]
+&nbsp;&nbsp;Arrays shall not be used in interfaces&nbsp;<font class="gray">(JSF-097-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>320</b>]
+&nbsp;&nbsp;Arrays shall not be passed to functions as array/pointer parameters&nbsp;<font class="gray">(JSF-097_d-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>17</b>]
+&nbsp;&nbsp;Functions which are called with array argument shall not be declared with pointer parameter&nbsp;<font class="gray">(JSF-097_e-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;Functions with variable numbers of arguments shall not be used&nbsp;<font class="gray">(JSF-108-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;Functions shall not call themselves, either directly or indirectly&nbsp;<font class="gray">(JSF-119-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>7</b>]
+&nbsp;&nbsp;Only valid C++ style comments (//) shall be used&nbsp;<font class="gray">(JSF-126-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>36</b>]
+&nbsp;&nbsp;Code that is not used (commented out) shall be deleted&nbsp;<font class="gray">(JSF-127-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Identifier declared in a local or function prototype scope shall not hide an identifier declared in a global or namespace
+scope&nbsp;<font class="gray">(JSF-135_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>33</b>]
+&nbsp;&nbsp;Identifiers declared in a local scope shall not hide identifiers declared in a class scope&nbsp;<font class="gray">(JSF-135_c-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>4</b>]
+&nbsp;&nbsp;All variables shall be initialized before use&nbsp;<font class="gray">(JSF-142_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>35</b>]
+&nbsp;&nbsp;Enumeration types shall be used instead of integer types (and constants) to select from a limited series of choices&nbsp;<font class="gray">(JSF-148-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;The right hand operand of a &amp;&amp; or || operator shall not contain side effects&nbsp;<font class="gray">(JSF-157-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>98</b>]
+&nbsp;&nbsp;The operands of a logical &amp;&amp; or || shall be parenthesized if the operands contain binary operators&nbsp;<font class="gray">(JSF-158-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;An assignment expression shall be used only as the expression in an expression statement&nbsp;<font class="gray">(JSF-160-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Signed and unsigned values shall not be mixed in arithmetic operations&nbsp;<font class="gray">(JSF-162_c-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>81</b>]
+&nbsp;&nbsp;Unsigned arithmetic shall not be used&nbsp;<font class="gray">(JSF-163-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;The comma operator shall not be used&nbsp;<font class="gray">(JSF-168_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;The null pointer shall not be de-referenced&nbsp;<font class="gray">(JSF-174_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>30</b>]
+&nbsp;&nbsp;NULL identifier shall not be used; use plain 0 instead&nbsp;<font class="gray">(JSF-175-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>13</b>]
+&nbsp;&nbsp;Implicit conversions from wider to narrower integral type which may result in a loss of information shall not be used&nbsp;<font class="gray">(JSF-180_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;Avoid implicit conversions from floating to integral type&nbsp;<font class="gray">(JSF-180_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>13</b>]
+&nbsp;&nbsp;Avoid implicit conversions from signed to unsigned type&nbsp;<font class="gray">(JSF-180_e-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;Implicit conversions from integral to floating type which may result in a loss of information shall not be used&nbsp;<font class="gray">(JSF-180_f-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>102</b>]
+&nbsp;&nbsp;Type casting from any type to or from pointers shall not be used&nbsp;<font class="gray">(JSF-182-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;Floating point numbers shall not implicitly be converted to integers&nbsp;<font class="gray">(JSF-184_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>153</b>]
+&nbsp;&nbsp;C-style casts (other than void casts) and functional notation casts (other than explicit constructor calls) shall not be used&nbsp;<font class="gray">(JSF-185-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>9</b>]
+&nbsp;&nbsp;The continue statement shall not be used&nbsp;<font class="gray">(JSF-190-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;The break statement shall not be used (except to terminate the cases of a switch statement)&nbsp;<font class="gray">(JSF-191-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;For any iteration statement there shall be no more than one break or goto statement used for loop termination&nbsp;<font class="gray">(JSF-191_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;Every non-empty case clause in a switch statement shall be terminated with a break statement&nbsp;<font class="gray">(JSF-193-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;All switch statements that do not intend to test for every enumeration value shall contain a final default clause&nbsp;<font class="gray">(JSF-194-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;Floating point variables shall not be tested for exact equality or inequality&nbsp;<font class="gray">(JSF-202-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;A single operation with side-effect shall only be used in the proper context&nbsp;<font class="gray">(JSF-204_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;A call of function with side-effect shall only be used in the proper context&nbsp;<font class="gray">(JSF-204_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>11</b>]
+&nbsp;&nbsp;Dynamic heap memory allocation shall not be used&nbsp;<font class="gray">(JSF-206-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>30</b>]
+&nbsp;&nbsp;C++ exceptions shall not be used&nbsp;<font class="gray">(JSF-208-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1000</b>]
+&nbsp;&nbsp;Typedefs that indicate size and signedness shall be used in place of the basic types&nbsp;<font class="gray">(JSF-209_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>15</b>]
+&nbsp;&nbsp;Algorithms shall not assume particular memory alignment&nbsp;<font class="gray">(JSF-211-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>100</b>]
+&nbsp;&nbsp;Use parenthesis to clarify expression order if operators with precedence lower than arithmetic are used&nbsp;<font class="gray">(JSF-213_e-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;
+[<b>3177</b>]
+&nbsp;&nbsp;<b>Severity&nbsp;3 - Medium</b></td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Only those characters specified in the C++ basic source character set will be used&nbsp;<font class="gray">(JSF-009-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>29</b>]
+&nbsp;&nbsp;Wide string literals (for example L"abc") will not be used&nbsp;<font class="gray">(JSF-013-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>4</b>]
+&nbsp;&nbsp;#ifndef, #define and #endif will be used to prevent multiple inclusions of the same header file&nbsp;<font class="gray">(JSF-027-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>14</b>]
+&nbsp;&nbsp;The #ifndef and #endif pre-processor directives will only be used to prevent multiple inclusions of the same header file&nbsp;<font class="gray">(JSF-028-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>24</b>]
+&nbsp;&nbsp;The #define pre-processor directive will only be used as part of the technique to prevent multiple inclusions of the same
+header file&nbsp;<font class="gray">(JSF-031-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>4</b>]
+&nbsp;&nbsp;A header file will contain a mechanism that prevents multiple inclusions of itself&nbsp;<font class="gray">(JSF-035-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>9</b>]
+&nbsp;&nbsp;Header files (*.h) will not contain non-const variable definitions or function definitions&nbsp;<font class="gray">(JSF-039_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>97</b>]
+&nbsp;&nbsp;Source lines will be kept to a length of 120 characters or less&nbsp;<font class="gray">(JSF-041-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>10</b>]
+&nbsp;&nbsp;Each expression-statement will be on a separate line&nbsp;<font class="gray">(JSF-042-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Identifiers will not begin with the underscore character "_"&nbsp;<font class="gray">(JSF-047-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>55</b>]
+&nbsp;&nbsp;Identifiers will not differ by mixture of case, the underscore character, interchange of the similarly looking letters and
+numbers&nbsp;<font class="gray">(JSF-048-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>19</b>]
+&nbsp;&nbsp;Begin class, struct, union, enum, and typedef names with an uppercase letter&nbsp;<font class="gray">(JSF-050-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>285</b>]
+&nbsp;&nbsp;Begin local variable names with a lowercase letters&nbsp;<font class="gray">(JSF-051_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>22</b>]
+&nbsp;&nbsp;Begin global variable names with a lowercase letters&nbsp;<font class="gray">(JSF-051_b-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>24</b>]
+&nbsp;&nbsp;Begin member variable names with a lowercase letters&nbsp;<font class="gray">(JSF-051_c-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>4</b>]
+&nbsp;&nbsp;Global function names should start with lowercase&nbsp;<font class="gray">(JSF-051_d-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>140</b>]
+&nbsp;&nbsp;Member function names should start with lowercase&nbsp;<font class="gray">(JSF-051_e-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;The public section of a class will be declared before the protected section and before the private section&nbsp;<font class="gray">(JSF-057_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>122</b>]
+&nbsp;&nbsp;When declaring functions with more than 2 parameters, the leading parenthesis and the first argument are to be written on
+the same line as the function name, each additional argument will be written on a separate line&nbsp;<font class="gray">(JSF-058-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Braces ("{}") which enclose a block will have nothing else on the line except comments&nbsp;<font class="gray">(JSF-060_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>37</b>]
+&nbsp;&nbsp;Braces ("{}") which enclose a block will not have an empty line after "{" nor before "}"&nbsp;<font class="gray">(JSF-060_c-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Braces ("{}") which enclose a block will have nothing else on the line except comments&nbsp;<font class="gray">(JSF-061-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>189</b>]
+&nbsp;&nbsp;The dereference operator '*' and the address-of operator '&amp;' will be directly connected with the type-specifier&nbsp;<font class="gray">(JSF-062-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>27</b>]
+&nbsp;&nbsp;A member function that does not affect the state of an object will be declared const&nbsp;<font class="gray">(JSF-069-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Initialization of nonstatic class members will be performed through the member initialization list rather than through assignment
+in the body of a constructor&nbsp;<font class="gray">(JSF-074-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>22</b>]
+&nbsp;&nbsp;Functions with more than 7 arguments will not be used&nbsp;<font class="gray">(JSF-110-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>89</b>]
+&nbsp;&nbsp;Functions will have a single exit point&nbsp;<font class="gray">(JSF-113-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>222</b>]
+&nbsp;&nbsp;If a function returns error information, then that error information will be tested&nbsp;<font class="gray">(JSF-115-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>743</b>]
+&nbsp;&nbsp;Each variable declaration will be commented&nbsp;<font class="gray">(JSF-132_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>28</b>]
+&nbsp;&nbsp;Each enumeration value will be commented&nbsp;<font class="gray">(JSF-132_c-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>24</b>]
+&nbsp;&nbsp;Each structure member variable will be commented&nbsp;<font class="gray">(JSF-132_d-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>23</b>]
+&nbsp;&nbsp;Every source file will be documented with an introductory comment that provides information on the file&nbsp;<font class="gray">(JSF-133_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>29</b>]
+&nbsp;&nbsp;Every source file will contain copyright information&nbsp;<font class="gray">(JSF-133_b-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>11</b>]
+&nbsp;&nbsp;External objects will not be declared in implementation files&nbsp;<font class="gray">(JSF-139_b-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>16</b>]
+&nbsp;&nbsp;Variables will not be introduced until they can be initialized with meaningful values&nbsp;<font class="gray">(JSF-143-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>7</b>]
+&nbsp;&nbsp;Avoid unused local variables&nbsp;<font class="gray">(JSF-143_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>757</b>]
+&nbsp;&nbsp;Numeric values in code will not be used; symbolic values will be used instead&nbsp;<font class="gray">(JSF-151-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>5</b>]
+&nbsp;&nbsp;Redundant explicit casts will not be used&nbsp;<font class="gray">(JSF-181_a-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>13</b>]
+&nbsp;&nbsp;All 'if...else if' constructs will contain either a final else clause or a comment indicating why a final else clause is not
+necessary&nbsp;<font class="gray">(JSF-192-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;Every switch statement will have at least two cases and a potential default&nbsp;<font class="gray">(JSF-196-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Null initialize or increment expressions in for loops will not be used; a while loop will be used instead&nbsp;<font class="gray">(JSF-200-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>63</b>]
+&nbsp;&nbsp;Unencapsulated global data will be avoided&nbsp;<font class="gray">(JSF-207-3)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;
+[<b>1606</b>]
+&nbsp;&nbsp;<b>Severity&nbsp;4 - Low</b></td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>8</b>]
+&nbsp;&nbsp;A file should directly include only headers containing declarations and definitions needed to a compilation&nbsp;<font class="gray">(JSF-037-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>175</b>]
+&nbsp;&nbsp;Tabs should be avoided&nbsp;<font class="gray">(JSF-043-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>8</b>]
+&nbsp;&nbsp;Protected data should only be used in structs, not in classes&nbsp;<font class="gray">(JSF-067_b-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Avoid using the friend mechanism&nbsp;<font class="gray">(JSF-070-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>4</b>]
+&nbsp;&nbsp;Hierarchies should be based on abstract classes&nbsp;<font class="gray">(JSF-087-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>65</b>]
+&nbsp;&nbsp;Every nonlocal name, except main(), should be placed in some namespace&nbsp;<font class="gray">(JSF-098-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;Don't write namespace usings in a header file or before an #include&nbsp;<font class="gray">(JSF-100-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>9</b>]
+&nbsp;&nbsp;A function definition should not be placed in a class specification&nbsp;<font class="gray">(JSF-109-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>877</b>]
+&nbsp;&nbsp;Value returned by a function having a non-void return type that is not an overloaded operator shall always be used&nbsp;<font class="gray">(JSF-115_a-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>8</b>]
+&nbsp;&nbsp;Arguments should be passed by reference&nbsp;<font class="gray">(JSF-117-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;An object should be passed as const reference if the function should not change the value of the object&nbsp;<font class="gray">(JSF-117.1-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>20</b>]
+&nbsp;&nbsp;A pointer parameter in a function prototype should be declared as pointer to const if the pointer is not used to modify the
+addressed object&nbsp;<font class="gray">(JSF-118-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>33</b>]
+&nbsp;&nbsp;Only functions with 1 or 2 statements should be considered candidates for inline functions&nbsp;<font class="gray">(JSF-121-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>4</b>]
+&nbsp;&nbsp;Trivial forwarding functions should be inlined&nbsp;<font class="gray">(JSF-124-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>8</b>]
+&nbsp;&nbsp;Pass and return by reference when possible&nbsp;<font class="gray">(JSF-125_a-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>119</b>]
+&nbsp;&nbsp;Document functions in comments that precede function definitions&nbsp;<font class="gray">(JSF-134-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>133</b>]
+&nbsp;&nbsp;Document functions in comments that precede function declarations&nbsp;<font class="gray">(JSF-134_b-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>8</b>]
+&nbsp;&nbsp;Objects should be defined at block scope if they are only accessed from within a single function&nbsp;<font class="gray">(JSF-136_a-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>34</b>]
+&nbsp;&nbsp;Declarations of local variables should be at the smallest feasible scope&nbsp;<font class="gray">(JSF-136_b-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>15</b>]
+&nbsp;&nbsp;All declarations at file scope should be static where possible&nbsp;<font class="gray">(JSF-137-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;Pointers to pointers should be avoided&nbsp;<font class="gray">(JSF-169-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Constructors allowing for conversion should be made explicit&nbsp;<font class="gray">(JSF-177_b-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>60</b>]
+&nbsp;&nbsp;Every possible measure should be taken to avoid type casting&nbsp;<font class="gray">(JSF-183-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>11</b>]
+&nbsp;&nbsp;Avoid using reinterpret_cast&nbsp;<font class="gray">(JSF-183_b-4)</font>&nbsp;
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br xmlns:textutil="textutil"><table xmlns:textutil="textutil" xmlns:authors="authors" width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td width="20%"></td>
+<td width="60%" align="center">
+<div class="small_header">Tasks by Author</div>
+</td>
+<td width="20%" align="right"><a class="blue_link" href="#top">Back to Top </a>&nbsp;&nbsp;&nbsp;
+</td>
+</tr>
+</table>
+<table xmlns:textutil="textutil" align="center" class="singleborder" width="75%" bordercolor="#CBCBCB" cellpadding="0" cellspacing="0">
+<tr bgcolor="#F3F3F3">
+<td class="singleborder" width="50%" align="center" rowspan="2"><b>Author</b>&nbsp;
+</td>
+<td class="singleborder" colspan="3" align="center"><b>Tasks</b></td>
+</tr>
+<tr bgcolor="#F3F3F3">
+<td class="singleborder" align="center">suppressed</td>
+<td class="singleborder" align="center">Total</td>
+<td class="singleborder" align="center">recommended</td>
+</tr>
+<tr>
+<td class="singleborder" align="left">&nbsp;<a xmlns:authors="authors" class="blue_link" href="javascript:openWin(&#34;report_dev1.html#cst_dev1&#34;)">User</a>&nbsp;
+</td>
+<td class="singleborder" align="right">&nbsp;0&nbsp;</td>
+<td class="singleborder" align="right">&nbsp;7539&nbsp;</td>
+<td class="singleborder" align="right">&nbsp;50&nbsp;</td>
+</tr>
+</table><br xmlns:textutil="textutil"><br></td>
+</tr>
+</table><script language="JavaScript">
+    if(document.getElementById("cs_link_sev") != null) {
+    document.getElementById("cs_link_sev").style.color="#990000";
+    document.getElementById("cs_link_sev").style.textDecoration="underline";
+    }
+    if(document.getElementById("cs_link_sevtrue") != null) {
+    document.getElementById("cs_link_sevtrue").style.color="#990000";
+    document.getElementById("cs_link_sevtrue").style.textDecoration="underline";
+    }
+    </script></td>
+</tr>
+</table>
+<table width="100%" bgcolor="#1D488D" border="0" bordercolor="#999999" cellpadding="10" cellspacing="0">
+<tr>
+<td align="center"><font class="white">&copy;Parasoft Corp. -&nbsp;C++test&nbsp;2020.1.0.20200422B856&nbsp;Reporting System&nbsp;</font></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

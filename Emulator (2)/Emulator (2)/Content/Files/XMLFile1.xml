@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<XML>
+	<User>
+		<ID>123456789</ID>
+		<Device>My PC</Device>
+	</User>
+	<Configuration>
+		<Name>Test Item</Name>
+		<Details>READ ME</Details>
+		<Enabled>true</Enabled>
+	</Configuration>
+	<Connection> // Change between Server/Client in this section
+		<Type>Client</Type> 
+		<Host>224.0.0.51</Host>
+		<Port>5000</Port>
+	</Connection>
+</XML>

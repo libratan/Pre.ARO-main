@@ -1,0 +1,12 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--This file contains the intially startup configuration of the map display.-->
+<DMM_CONFIG version="1.0">
+	
+	<FS_CONFIG_PATH>CONFIG_DIRECTORY.XML</FS_CONFIG_PATH>
+
+	<UDP_CONFIG>
+		<IP_CONFIG>224.0.0.51</IP_CONFIG>
+		<PORT_CONFIG>5000</PORT_CONFIG>
+	</UDP_CONFIG>
+	
+</DMM_CONFIG>	

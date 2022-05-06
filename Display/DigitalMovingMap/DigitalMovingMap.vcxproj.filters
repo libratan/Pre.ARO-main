@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\FliteScene">
+      <UniqueIdentifier>{4d9f5550-3206-4676-b25a-69bcd074ee0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FS_Functions">
+      <UniqueIdentifier>{58af34fd-46f7-49f6-80d3-e6b76f7fda80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Files">
+      <UniqueIdentifier>{dcc68278-63ba-40e8-93d7-1eb11b6bcd93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RapidXml">
+      <UniqueIdentifier>{ef517c4d-84a2-475f-a33f-0ea4ec86d38d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DigitalMovingMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FliteScene.h">
+      <Filter>Header Files\FliteScene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IF_Callback.h">
+      <Filter>Header Files\FliteScene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IF_Command.h">
+      <Filter>Header Files\FliteScene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IF_File_Services.h">
+      <Filter>Header Files\FliteScene</Filter>
+    </ClInclude>
+    <ClInclude Include="FS_Comm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FS_Constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CallbackServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapZoom.h">
+      <Filter>FS_Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="FS_Functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTactical.h">
+      <Filter>FS_Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Vehicle.h">
+      <Filter>FS_Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="OwnshipTest.h">
+      <Filter>Test Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapScale.h">
+      <Filter>FS_Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_Constants.h">
+      <Filter>Test Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlSerializer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidXml\rapidxml_iterators.h">
+      <Filter>Header Files\RapidXml</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidXml\rapidxml_print.h">
+      <Filter>Header Files\RapidXml</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidXml\rapidxml_utils.h">
+      <Filter>Header Files\RapidXml</Filter>
+    </ClInclude>
+    <ClInclude Include="structs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="enums.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidXml\rapidxml.h">
+      <Filter>Header Files\RapidXml</Filter>
+    </ClInclude>
+    <ClInclude Include="Network.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="icd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Deserializer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ICD_FlightDynamics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolDB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DigitalMovingMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FS_Comm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CallbackServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MapZoom.cpp">
+      <Filter>FS_Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTactical.cpp">
+      <Filter>FS_Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Vehicle.cpp">
+      <Filter>FS_Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="MapScale.cpp">
+      <Filter>FS_Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlSerializer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UDPSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Deserializer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ICD_FlightDynamics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TacticalGraphicMsg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolDB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DigitalMovingMap.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="DigitalMovingMap.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Display_Config.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>

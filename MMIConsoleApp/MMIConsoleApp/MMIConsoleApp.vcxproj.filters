@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\DMM">
+      <UniqueIdentifier>{ea9ef97c-fa1e-4635-a0ef-22bf98034de0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PAGE">
+      <UniqueIdentifier>{cb65c6cf-e8f8-4cb0-9224-0603b21f67ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PAGE">
+      <UniqueIdentifier>{b51113a6-4512-4724-8eae-1260ecf4e943}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RapidXml">
+      <UniqueIdentifier>{ed667bf1-63ac-4521-bceb-ba4b0f623215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DMM">
+      <UniqueIdentifier>{1146e12c-4d2e-4638-aea3-f72c36e5720e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common">
+      <UniqueIdentifier>{4b80fc31-b5b7-4657-8614-924c24beb6cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MSG">
+      <UniqueIdentifier>{efdfd574-6363-4706-8ad9-d7d0880c8895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MSG">
+      <UniqueIdentifier>{1eb9a742-afa3-4fe2-8c72-ad0376f6ea8d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MMIConsoleApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PAGE\source\PAGE_DcmFailure.cpp">
+      <Filter>Source Files\PAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="PAGE\source\PAGE_HSDMapPage.cpp">
+      <Filter>Source Files\PAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="PAGE\source\PAGE_pageControlMgr.cpp">
+      <Filter>Source Files\PAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="PAGE\source\PAGE_pageMgr.cpp">
+      <Filter>Source Files\PAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="PAGE\source\PAGE_TextPage.cpp">
+      <Filter>Source Files\PAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="PAGE\source\PAGE_EOPage.cpp">
+      <Filter>Source Files\PAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="PAGE\source\XmlSerializer.cpp">
+      <Filter>Source Files\PAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="PAGE\source\PAGE_NetPage.cpp">
+      <Filter>Source Files\PAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="PAGE\source\PAGE_SysPage.cpp">
+      <Filter>Source Files\PAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="PAGE\source\PAGE_DcltPage.cpp">
+      <Filter>Source Files\PAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="PAGE\source\PAGE_MsgPage.cpp">
+      <Filter>Source Files\PAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="DMM\source\CallbackServer.cpp">
+      <Filter>Source Files\DMM</Filter>
+    </ClCompile>
+    <ClCompile Include="DMM\source\FS_Comm.cpp">
+      <Filter>Source Files\DMM</Filter>
+    </ClCompile>
+    <ClCompile Include="DMM\source\MapTactical.cpp">
+      <Filter>Source Files\DMM</Filter>
+    </ClCompile>
+    <ClCompile Include="DMM\source\SymbolDB.cpp">
+      <Filter>Source Files\DMM</Filter>
+    </ClCompile>
+    <ClCompile Include="DMM\source\MapScale.cpp">
+      <Filter>Source Files\DMM</Filter>
+    </ClCompile>
+    <ClCompile Include="DMM\source\LogClient.cpp">
+      <Filter>Source Files\DMM</Filter>
+    </ClCompile>
+    <ClCompile Include="DMM\source\MapZoom.cpp">
+      <Filter>Source Files\DMM</Filter>
+    </ClCompile>
+    <ClCompile Include="DMM\source\MapSymbols.cpp">
+      <Filter>Source Files\DMM</Filter>
+    </ClCompile>
+    <ClCompile Include="DMM\source\DMMWindow.cpp">
+      <Filter>Source Files\DMM</Filter>
+    </ClCompile>
+    <ClCompile Include="DMM\source\UDPSocket.cpp">
+      <Filter>Source Files\DMM</Filter>
+    </ClCompile>
+    <ClCompile Include="DMM\source\TCPSocket.cpp">
+      <Filter>Source Files\DMM</Filter>
+    </ClCompile>
+    <ClCompile Include="MSG\source\Deserializer.cpp">
+      <Filter>Source Files\MSG</Filter>
+    </ClCompile>
+    <ClCompile Include="MSG\source\MSG_FlightDynamics.cpp">
+      <Filter>Source Files\MSG</Filter>
+    </ClCompile>
+    <ClCompile Include="MSG\source\MSG_TacticalGraphic.cpp">
+      <Filter>Source Files\MSG</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MMIConsoleApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PAGE\header\PAGE_DcmFailure.h">
+      <Filter>Header Files\PAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="PAGE\header\PAGE_HSDMapPage.h">
+      <Filter>Header Files\PAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="PAGE\header\PAGE_pageControlMgr.h">
+      <Filter>Header Files\PAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="PAGE\header\PAGE_pageMgr.h">
+      <Filter>Header Files\PAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="PAGE\header\PAGE_TextPage.h">
+      <Filter>Header Files\PAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="PAGE\header\PAGE_EOPage.h">
+      <Filter>Header Files\PAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="PAGE\header\structs.h">
+      <Filter>Header Files\PAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="PAGE\header\XmlSerializer.h">
+      <Filter>Header Files\PAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidXml\rapidxml.h">
+      <Filter>Header Files\RapidXml</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidXml\rapidxml_iterators.h">
+      <Filter>Header Files\RapidXml</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidXml\rapidxml_print.h">
+      <Filter>Header Files\RapidXml</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidXml\rapidxml_utils.h">
+      <Filter>Header Files\RapidXml</Filter>
+    </ClInclude>
+    <ClInclude Include="PAGE\header\handles.h">
+      <Filter>Header Files\PAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="PAGE\header\PAGE_NetPage.h">
+      <Filter>Header Files\PAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="PAGE\header\PAGE_SysPage.h">
+      <Filter>Header Files\PAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="PAGE\header\PAGE_DcltPage.h">
+      <Filter>Header Files\PAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="PAGE\header\PAGE_MsgPage.h">
+      <Filter>Header Files\PAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\gen_type.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="DMM\header\CallbackServer.h">
+      <Filter>Header Files\DMM</Filter>
+    </ClInclude>
+    <ClInclude Include="DMM\header\FS_Constants.h">
+      <Filter>Header Files\DMM</Filter>
+    </ClInclude>
+    <ClInclude Include="DMM\header\FS_Comm.h">
+      <Filter>Header Files\DMM</Filter>
+    </ClInclude>
+    <ClInclude Include="DMM\header\MapTactical.h">
+      <Filter>Header Files\DMM</Filter>
+    </ClInclude>
+    <ClInclude Include="DMM\header\SymbolDB.h">
+      <Filter>Header Files\DMM</Filter>
+    </ClInclude>
+    <ClInclude Include="DMM\header\MapScale.h">
+      <Filter>Header Files\DMM</Filter>
+    </ClInclude>
+    <ClInclude Include="DMM\header\LogClient.h">
+      <Filter>Header Files\DMM</Filter>
+    </ClInclude>
+    <ClInclude Include="DMM\header\MapZoom.h">
+      <Filter>Header Files\DMM</Filter>
+    </ClInclude>
+    <ClInclude Include="DMM\header\MapSymbols.h">
+      <Filter>Header Files\DMM</Filter>
+    </ClInclude>
+    <ClInclude Include="DMM\header\DMMWindow.h">
+      <Filter>Header Files\DMM</Filter>
+    </ClInclude>
+    <ClInclude Include="MSG\header\Deserializer.h">
+      <Filter>Header Files\MSG</Filter>
+    </ClInclude>
+    <ClInclude Include="MSG\header\icd.h">
+      <Filter>Header Files\MSG</Filter>
+    </ClInclude>
+    <ClInclude Include="MSG\header\Message.h">
+      <Filter>Header Files\MSG</Filter>
+    </ClInclude>
+    <ClInclude Include="MSG\header\MSG_FlightDynamics.h">
+      <Filter>Header Files\MSG</Filter>
+    </ClInclude>
+    <ClInclude Include="MSG\header\MSG_TacticalGraphic.h">
+      <Filter>Header Files\MSG</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\commctrl.rh" />
+  </ItemGroup>
+</Project>

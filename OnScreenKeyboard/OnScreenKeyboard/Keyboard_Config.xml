@@ -1,0 +1,34 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--This file contains the intial startup configuration of the on-screen keyboard.-->
+<KEYBOARD_CONFIG version="1.0">
+	
+	<ALPHABET>
+		<WIDTH>180</WIDTH>
+		<HEIGHT>80</HEIGHT>
+	</ALPHABET>
+	
+	<SPACING>
+		<WIDTH>5</WIDTH>
+		<HEIGHT>5</HEIGHT>
+	</SPACING>
+	
+	<TEXT>
+		<R>255</R>
+		<G>0</G>
+		<B>0</B>
+		<FONT_SIZE>20</FONT_SIZE>
+	</TEXT>
+	
+	<BUTTON_COLOUR>
+		<R>0</R>
+		<G>255</G>
+		<B>0</B>
+	</BUTTON_COLOUR>
+	
+	<BACKGROUND_COLOUR>
+		<R>0</R>
+		<G>0</G>
+		<B>255</B>
+	</BACKGROUND_COLOUR>
+	
+</KEYBOARD_CONFIG>

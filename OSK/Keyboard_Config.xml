@@ -1,0 +1,52 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--This file contains the intial startup configuration of the on-screen keyboard.-->
+<KEYBOARD_CONFIG version="1.0">
+
+  <!-- Width and height specified in number of pixels-->
+  <WINDOW>
+    <WIDTH>1280</WIDTH>
+    <HEIGHT>720</HEIGHT>
+  </WINDOW>
+
+  <!-- Width and height specified in number of pixels-->
+	<ALPHABET>
+		<WIDTH>75</WIDTH>
+		<HEIGHT>55</HEIGHT>
+	</ALPHABET>
+
+  <!-- Width and height specified in number of pixels-->
+	<SPACING>
+		<WIDTH>5</WIDTH>
+		<HEIGHT>5</HEIGHT>
+	</SPACING>
+
+  <!-- R-Red, G-Green and B-Blue, FONT_STYLE and FONT_SIZE-->
+	<TEXT>
+		<R>255</R>
+    <G>0</G>
+		<B>0</B>
+    <FONT_STYLE>Arial</FONT_STYLE><!-- Arial/Times New Roman/Impact/.....-->
+		<FONT_SIZE>25</FONT_SIZE>
+	</TEXT>
+
+  <!-- R-Red, G-Green and B-Blue-->
+	<BUTTON_COLOUR>
+		<R>0</R>
+		<G>255</G>
+		<B>0</B>
+	</BUTTON_COLOUR>
+
+  <!-- R-Red, G-Green and B-Blue-->
+	<BACKGROUND_COLOUR>
+		<R>0</R>
+		<G>0</G>
+		<B>255</B>
+	</BACKGROUND_COLOUR>
+
+  <!-- Width and height specified in number of pixels-->
+  <MESSAGE_BOX>
+    <WIDTH>800</WIDTH>
+    <HEIGHT>165</HEIGHT>
+  </MESSAGE_BOX>
+	
+</KEYBOARD_CONFIG>

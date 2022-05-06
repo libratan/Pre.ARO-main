@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Emulator__2_</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DataTables\**" />
+    <EmbeddedResource Remove="DataTables\**" />
+    <None Remove="DataTables\**" />
+    <Page Remove="DataTables\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="DataLoggers\Positions_Log.cs" />
+    <Compile Remove="DataLoggers\Symbols_Log.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Content\" />
+    <Folder Include="DataLoggers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LumenWorksCsvReader" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
+  </ItemGroup>
+
+</Project>

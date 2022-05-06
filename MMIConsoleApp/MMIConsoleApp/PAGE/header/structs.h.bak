@@ -1,0 +1,48 @@
+#ifndef STRUCT_H
+#define STRUCT_H
+#pragma once
+#include <string>
+#include <windows.h>
+using namespace std;
+
+struct UDP_CONFIG {
+	string ip_address;
+	int port;
+};
+
+struct DISPLAY_CONFIG {
+		string FS_config_path;
+		UDP_CONFIG UDP_config;
+        int ALPHA_W;
+        int ALPHA_H;
+        int SPACE_W;
+        int SPACE_H;
+		int TEXT_RED;
+		int TEXT_GREEN;
+		int TEXT_BLUE;
+		float TEXT_SIZE;
+		char TEXT_STYLE[32];
+		int BUTTON_RED;
+		int BUTTON_GREEN;
+		int BUTTON_BLUE;
+		int BG_RED;
+		int BG_GREEN;
+		int BG_BLUE;
+		int MSG_W;
+		int MSG_H;
+		int WINDOW_W;
+		int WINDOW_H;
+};
+
+//DISPLAY_CONFIG sDisplay_config;
+//HWND MsgBox;
+//HWND alphabet_buttons[26];
+//HWND number_buttons[10];
+//HWND period_button;
+//HWND enter_button;
+//HWND space_button;
+//HWND backspace_button;
+//HDC hDevice;
+//HGLRC hContext;
+
+#endif

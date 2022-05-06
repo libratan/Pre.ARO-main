@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="xmldoc\**" />
+    <EmbeddedResource Remove="xmldoc\**" />
+    <None Remove="xmldoc\**" />
+    <Page Remove="xmldoc\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Content\Files\drop_list.txt" />
+    <None Remove="README.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Content\Files\drop_list.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LumenWorksCsvReader" Version="4.0.0" />
+  </ItemGroup>
+
+</Project>

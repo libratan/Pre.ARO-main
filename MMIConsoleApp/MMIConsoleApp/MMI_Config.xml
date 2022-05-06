@@ -1,0 +1,205 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--This file contains the intially startup configuration of the map display.-->
+<MMI_CONFIG version="1.0">
+	
+	<FS_CONFIG_PATH>CONFIG_DIRECTORY.XML</FS_CONFIG_PATH>
+
+	<UDP_CONFIG>
+		<IP_CONFIG>224.0.0.51</IP_CONFIG>
+		<PORT_CONFIG>5000</PORT_CONFIG>
+	</UDP_CONFIG>
+
+  <!-- Main Window width and height specified in number of pixels-->
+  <WINDOW>
+    <WIDTH>1280</WIDTH>
+    <HEIGHT>800</HEIGHT>
+  </WINDOW>
+
+  <!-- Keyboard keys width and height specified in number of pixels-->
+  <KEYBOARD_KEYS>
+    <WIDTH>118</WIDTH>
+    <HEIGHT>118</HEIGHT>
+  </KEYBOARD_KEYS>
+
+  <!-- Spacing between keys, width and height specified in number of pixels-->
+  <SPACING>
+    <WIDTH>5</WIDTH>
+    <HEIGHT>5</HEIGHT>
+  </SPACING>
+
+  <!-- Font settings, R-Red, G-Green and B-Blue, FONT_STYLE and FONT_SIZE-->
+  <TEXT>
+    <R>255</R>
+    <G>255</G>
+    <B>255</B>
+    <FONT_STYLE>Arial</FONT_STYLE>
+    <!-- Arial/Times New Roman/Impact/.....--> 
+	<OSB_FONT_SIZE>25</OSB_FONT_SIZE> <!-- FONT Size: 12 -> lfHeight: 25 -->
+    <KEYBOARD_FONT_SIZE>25</KEYBOARD_FONT_SIZE> <!-- FONT Size: 12 -> lfHeight: 25 -->
+  </TEXT>
+
+  <!-- OSB and Keyboard color, R-Red, G-Green and B-Blue-->
+  <BUTTON_COLOUR>
+    <R>0</R>
+    <G>0</G>
+    <B>0</B>
+  </BUTTON_COLOUR>
+
+  <!-- Background color, R-Red, G-Green and B-Blue-->
+  <BACKGROUND_COLOUR>
+    <R>0</R>
+    <G>0</G>
+    <B>0</B>
+  </BACKGROUND_COLOUR>
+
+  <!-- Message box width and height specified in number of pixels-->
+  <MESSAGE_BOX>
+    <WIDTH>944</WIDTH> <!-- Size of OSBx8 -->
+    <HEIGHT>165</HEIGHT><!-- Top of LEFT/RIGHT OSB -->
+  </MESSAGE_BOX>
+  
+  <!-- OSB size-->
+  <OSB_SIZE>
+	<WIDTH>118</WIDTH>
+	<HEIGHT>118</HEIGHT>
+  </OSB_SIZE>
+  
+  <!-- TOP OSB positions (top-left coordinates)-->
+  <T1>
+	<X>51</X>
+	<Y>0</X>
+  </T1>
+  
+  <T2>
+	<X>169</X>
+  </T2>
+  
+  <T3>
+	<X>287</X>
+  </T3>
+  
+  <T4>
+	<X>405</X>
+  </T4>
+  
+  <T5>
+	<X>523</X>
+  </T5>
+  
+  <T6>
+	<X>641</X>
+  </T6>
+  
+  <T7>
+	<X>759</X>
+  </T7>
+  
+  <T8>
+	<X>877</X>
+  </T8>
+  
+  <T9>
+	<X>995</X>
+  </T9>
+  
+  <T10>
+	<X>1113</X>
+  </T10>
+  
+  <!-- LEFT OSB positions (top-left coordinates)-->
+  <L1>
+	<X>0</X>
+	<Y>165</Y>
+  </L1>
+  
+  <L2>
+	<Y>283</Y>
+  </L2>
+  
+  <L3>
+	<Y>401</Y>
+  </L3>
+  
+  <L4>
+	<Y>519</Y>
+  </L4>
+  
+  <!-- RIGHT OSB positions (top-left coordinates)-->
+  <R1>
+	<X>1161</X>
+	<Y>165</Y>
+  </R1>
+  
+  <R2>
+	<Y>283</Y>
+  </R2>
+  
+  <R3>
+	<Y>401</Y>
+  </R3>
+  
+  <R4>
+	<Y>519</Y>
+  </R4>
+  
+  <!-- BOTTOM OSB positions (top-left coordinates)-->
+  <B1>
+	<X>51</X>
+	<Y>681</X>
+  </B1>
+  
+  <B2>
+	<X>169</X>
+  </B2>
+  
+  <B3>
+	<X>287</X>
+  </B3>
+  
+  <B4>
+	<X>405</X>
+  </B4>
+  
+  <B5>
+	<X>523</X>
+  </B5>
+  
+  <B6>
+	<X>641</X>
+  </B6>
+  
+  <B7>
+	<X>759</X>
+  </B7>
+  
+  <B8>
+	<X>877</X>
+  </B8>
+  
+  <B9>
+	<X>995</X>
+  </B9>
+  
+  <B10>
+	<X>1113</X>
+  </B10>
+  
+  <!-- Tab Control size-->
+  <TAB_CTRL_SIZE>
+	<WIDTH>1280</WIDTH>
+	<HEIGHT>118</HEIGHT>
+  </TAB_CTRL_SIZE>
+  
+  <!-- Tab Control size-->
+  <TAB_CTRL_POS>
+	<X>0</X>
+	<Y>682</Y>
+  </TAB_CTRL_POS>
+  
+  <!-- Tab size-->
+  <TAB_SIZE>
+	<WIDTH>118</WIDTH>
+	<HEIGHT>118</HEIGHT>
+  </TAB_SIZE>
+  
+</DMM_CONFIG>	

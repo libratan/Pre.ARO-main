@@ -1,0 +1,60 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--This file contains the intially startup configuration of the map display.-->
+<MMI_CONFIG version="1.0">
+	
+	<FS_CONFIG_PATH>CONFIG_DIRECTORY.XML</FS_CONFIG_PATH>
+
+	<UDP_CONFIG>
+		<IP_CONFIG>224.0.0.51</IP_CONFIG>
+		<PORT_CONFIG>5000</PORT_CONFIG>
+	</UDP_CONFIG>
+
+  <!-- Width and height specified in number of pixels-->
+  <WINDOW>
+    <WIDTH>1280</WIDTH>
+    <HEIGHT>800</HEIGHT>
+  </WINDOW>
+
+  <!-- Width and height specified in number of pixels-->
+  <ALPHABET>
+    <WIDTH>35</WIDTH>
+    <HEIGHT>35</HEIGHT>
+  </ALPHABET>
+
+  <!-- Width and height specified in number of pixels-->
+  <SPACING>
+    <WIDTH>5</WIDTH>
+    <HEIGHT>5</HEIGHT>
+  </SPACING>
+
+  <!-- R-Red, G-Green and B-Blue, FONT_STYLE and FONT_SIZE-->
+  <TEXT>
+    <R>255</R>
+    <G>255</G>
+    <B>255</B>
+    <FONT_STYLE>Arial</FONT_STYLE>
+    <!-- Arial/Times New Roman/Impact/.....-->
+    <FONT_SIZE>12</FONT_SIZE>
+  </TEXT>
+
+  <!-- R-Red, G-Green and B-Blue-->
+  <BUTTON_COLOUR>
+    <R>0</R>
+    <G>0</G>
+    <B>0</B>
+  </BUTTON_COLOUR>
+
+  <!-- R-Red, G-Green and B-Blue-->
+  <BACKGROUND_COLOUR>
+    <R>0</R>
+    <G>0</G>
+    <B>0</B>
+  </BACKGROUND_COLOUR>
+
+  <!-- Width and height specified in number of pixels-->
+  <MESSAGE_BOX>
+    <WIDTH>400</WIDTH>
+    <HEIGHT>200</HEIGHT>
+  </MESSAGE_BOX>
+
+</DMM_CONFIG>	

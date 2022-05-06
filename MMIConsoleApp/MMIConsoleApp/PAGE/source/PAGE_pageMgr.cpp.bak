@@ -1,0 +1,708 @@
+//******************************************************************************
+// Copyright XYZ PTE LTD. All Rights Reserved 
+//
+// FILE NAME: Page_pageMgr.cpp
+//
+// AUTHOR: xxx
+//
+// DATE: DD/MM/YYYY
+//
+// DESCRIPTION
+// Implementation file
+// entry point for Page Manager
+// 
+// TRACEABILITY : -
+//
+// MODIFICATION HISTORY
+//   DATE              : 
+//   MODIFIER          : 
+//   MODIFICATION      :     
+//
+//******************************************************************************
+#include "../header/PAGE_pageMgr.h"
+#include "../../MMIConsoleApp.h"
+#include "../PAGE/header/handles.h"
+
+extern HWND MAIN_WINDOW;
+extern HWND TAB_CTRL;
+extern HWND BUTTON_T1;
+extern HWND BUTTON_T2;
+extern HWND BUTTON_T3;
+extern HWND BUTTON_T4;
+extern HWND BUTTON_T5;
+extern HWND TAB_HSD;
+
+namespace PAGE
+{
+    PageMgr * PageMgr::pageMgrPtr_ = NULL; //PageMgr singleton class
+
+    int nInitialized = 0;
+    int nRendering = 1;
+    int nFrameWidth = 0;
+    int nFrameHeight = 0;
+    HDC hDevice;
+    HGLRC hContext;
+    DISPLAY_CONFIG sDisplay_config;
+
+    HINSTANCE hInstance{};
+    HINSTANCE hPrevInstance{};
+
+    //****************************************************************************
+    //* Function Name  : void execute()
+    //* Purpose        : the "framework" will periodically call execute() at interval of X ms
+    //*                  to wake up the Display Manager, this X ms is based on system requirementss
+    //* Pre-Condition  : None
+    //* Post-Condition : None
+    //* Access         : Public
+    //* Note           :
+    //****************************************************************************
+    void PageMgr::execute()
+    {
+        static unsigned short int currentPageIndex;
+
+        /*  Performing PAGE Operation
+        --------------------------- */
+        // get active page index
+        currentPageIndex = PageControlMgr::getMasterPageIndex();
+
+        // To avoid currentPageIndex from going beyond max index
+        if ((currentPageIndex < LAST_PAGE) && (PageControlMgr::getPageStatus() == OPERATIONAL_STATE))
+        {
+            //run the active Display page object, drawings etc..
+            pagePointer_[currentPageIndex]->managePage();
+
+            //handle key presses (Note: to check which OSB is pressed)
+            pagePointer_[currentPageIndex]->manageOsb();
+        }
+    }
+    
+    //****************************************************************************
+    //* Function Name  : doEndInit()
+    //* Purpose        : Do end of initialzation 
+    //*                 
+    //* Pre-Condition  : None
+    //* Post-Condition : None
+    //* Access         : Public
+    //* Note           :
+    //****************************************************************************
+	void PageMgr::doEndInit(void)
+	{
+        //init pointers
+        pagePointer_[HSD_PAGE] = static_cast<HSDPage*>(&HSDPageObject_);
+        pagePointer_[MAP_PAGE] = static_cast<MapPage*>(&MapPageObject_);
+        pagePointer_[EO_PAGE] = static_cast<EOPage*>(&EOPageObject_);
+
+        //TODO: When pages are created
+        pagePointer_[NET_PAGE] = static_cast<EOPage*>(&EOPageObject_);
+        pagePointer_[STATUS_PAGE] = static_cast<EOPage*>(&EOPageObject_);
+
+        //Init Main Window
+        HANDLE hThread = 0;
+
+        // Spawn the task that creates the Window
+        hThread = CreateThread(NULL, 40960, (LPTHREAD_START_ROUTINE)DrawMainWindow, 0, 0, NULL);
+
+        if (hThread == 0)
+        {
+            printf("Unable to start Window Thread!\n");
+            return;
+        }
+         //default is Main page, i.e. startup page
+        PageControlMgr::setMasterPageIndex(static_cast<unsigned short>(HSD_PAGE));
+        //initilize primary display
+        //checks are embedded inside to only do init when state is init
+        PageControlMgr::initializePrimaryDisplay();        
+        //DrawMainWindow(NULL);
+        /**/
+        pagePointer_[HSD_PAGE]->doEndInit();
+
+
+	}
+    
+    //****************************************************************************
+    //* Function Name  : int DrawMainWindow(void* pParam)
+    //* Purpose        : Draw the Main MMI Window
+    //*                 
+    //* Pre-Condition  : None
+    //* Post-Condition : None
+    //* Access         : Public
+    //* Note           :
+    //****************************************************************************
+    int PageMgr::DrawMainWindow(void* pParam)
+    {
+        // Register the window class.
+        const wchar_t CLASS_NAME[] = L"MMIConsoleApp";
+
+        WNDCLASS wc = { };
+
+        wc.lpfnWndProc = PageMgr::WindowProc;
+        wc.hInstance = hInstance;
+        wc.lpszClassName = CLASS_NAME;
+
+        // Update struct with config information
+        getDisplayConfig();
+
+        // Change main app background color
+        wc.hbrBackground = CreateSolidBrush(RGB(sDisplay_config.BG_RED, sDisplay_config.BG_GREEN, sDisplay_config.BG_BLUE));
+
+        RegisterClass(&wc);
+
+        // Create the window.
+        MAIN_WINDOW = CreateWindowEx(
+            0,                              // Optional window styles.
+            CLASS_NAME,                     // Window class
+            L"MMIConsoleApp",                    // Window text
+            WS_POPUPWINDOW,     // Window style
+            CW_USEDEFAULT, CW_USEDEFAULT,   // Position (x,y)
+            sDisplay_config.WINDOW_W, sDisplay_config.WINDOW_H, // Size
+            NULL,                           // Parent window    
+            NULL,                           // Menu
+            hInstance,                      // Instance handle
+            NULL                            // Additional application data
+        );
+
+        if (MAIN_WINDOW == NULL)
+        {
+            return 0;
+        }
+
+        ShowWindow(MAIN_WINDOW, SW_SHOWNORMAL);
+
+        // Set app to always be top most layer
+        SetWindowPos(
+            MAIN_WINDOW,
+            0,//HWND_TOPMOST,
+            0, 0,
+            sDisplay_config.WINDOW_W, sDisplay_config.WINDOW_H,
+            SWP_SHOWWINDOW | SWP_DRAWFRAME);
+
+        /*******************/
+        RECT rcClient;
+        INITCOMMONCONTROLSEX icex;
+        TCITEM tie;
+        int i;
+        WCHAR text[10];
+
+        // Initialize common controls.
+        icex.dwSize = sizeof(INITCOMMONCONTROLSEX);
+        icex.dwICC = ICC_TAB_CLASSES;
+        InitCommonControlsEx(&icex);
+
+        // Get the dimensions of the parent window's client area, and 
+        // create a tab control child window of that size. Note that g_hInst
+        // is the global instance handle.
+        GetClientRect(MAIN_WINDOW, &rcClient);
+        TAB_CTRL = CreateWindow(WC_TABCONTROL, L"",
+            WS_CHILD | WS_CLIPSIBLINGS | WS_VISIBLE | TCS_BOTTOM | TCS_BUTTONS | TCS_FOCUSNEVER  | TCS_OWNERDRAWFIXED,
+            0, sDisplay_config.WINDOW_H - 118, 697/*sDisplay_config.WINDOW_W*/, 118,
+            MAIN_WINDOW, NULL, hInstance, NULL);
+        if (TAB_CTRL == NULL)
+        {
+            return 0;
+        }
+
+        // Add tabs
+        tie.mask = TCIF_TEXT | TCIF_IMAGE;
+        tie.iImage = -1;
+        wcscpy_s(text, L"HSD");
+        tie.pszText = text;
+
+        if (TabCtrl_InsertItem(TAB_CTRL, 0, &tie) == -1)
+        {
+            DestroyWindow(TAB_CTRL);
+        }
+
+        tie.mask = TCIF_TEXT | TCIF_IMAGE;
+        tie.iImage = -1;
+        wcscpy_s(text, L"MAP");
+        tie.pszText = text;
+
+        if (TabCtrl_InsertItem(TAB_CTRL, 1, &tie) == -1)
+        {
+            DestroyWindow(TAB_CTRL);
+        }
+
+        tie.mask = TCIF_TEXT | TCIF_IMAGE;
+        tie.iImage = -1;
+        wcscpy_s(text, L"EO");
+        tie.pszText = text;
+
+        if (TabCtrl_InsertItem(TAB_CTRL, 1, &tie) == -1)
+        {
+            DestroyWindow(TAB_CTRL);
+        }
+
+        tie.mask = TCIF_TEXT | TCIF_IMAGE;
+        tie.iImage = -1;
+        wcscpy_s(text, L"NET");
+        tie.pszText = text;
+
+        if (TabCtrl_InsertItem(TAB_CTRL, 1, &tie) == -1)
+        {
+            DestroyWindow(TAB_CTRL);
+        }
+
+        tie.mask = TCIF_TEXT | TCIF_IMAGE;
+        tie.iImage = -1;
+        wcscpy_s(text, L"STATUS");
+        tie.pszText = text;
+
+        if (TabCtrl_InsertItem(TAB_CTRL, 1, &tie) == -1)
+        {
+            DestroyWindow(TAB_CTRL);
+        }
+
+        TabCtrl_SetMinTabWidth(TAB_CTRL, 136);
+        TabCtrl_SetItemSize(TAB_CTRL, 136, 118);
+        //TabCtrl_SetPadding(TAB_CTRL, 100, 100);
+        SetWindowPos(
+            TAB_CTRL,
+            HWND_BOTTOM,
+            0, 0,
+            0, 0,
+            SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
+        /*******************/
+
+        TEXTBOX_B = CreateWindow(
+            TEXT("Edit"),
+            L"Testing",
+            WS_VISIBLE | WS_CHILD | WS_BORDER | BS_OWNERDRAW | WS_CLIPSIBLINGS | BS_MULTILINE,
+            698, 680,
+            173, 118,
+            MAIN_WINDOW,
+            NULL,
+            hInstance,
+            NULL);
+
+        SetWindowPos(
+            TEXTBOX_B,
+            HWND_TOPMOST,
+            0, 0,
+            0, 0,
+            SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
+
+        BUTTON_T1 = CreateWindow(
+            WC_BUTTON,
+            L"T1",
+            WS_VISIBLE | WS_CHILD | WS_BORDER | BS_OWNERDRAW | WS_CLIPSIBLINGS,
+            1142, 680,
+            136, 118,
+            MAIN_WINDOW,
+            NULL,
+            hInstance,
+            NULL);
+        
+        SetWindowPos(
+            BUTTON_T1,
+            HWND_TOPMOST,
+            0, 0,
+            0, 0,
+            SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
+        
+        BUTTON_T2 = CreateWindow(
+            WC_BUTTON,
+            L"T2",
+            WS_VISIBLE | WS_CHILD | WS_BORDER | BS_OWNERDRAW | WS_CLIPSIBLINGS,
+            1006, 680,
+            136, 118,
+            MAIN_WINDOW,
+            NULL,
+            hInstance,
+            NULL);
+
+        SetWindowPos(
+            BUTTON_T2,
+            HWND_TOPMOST,
+            0, 0,
+            0, 0,
+            SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
+        
+        BUTTON_T3 = CreateWindow(
+            WC_BUTTON,
+            L"T3",
+            WS_VISIBLE | WS_CHILD | WS_BORDER | BS_OWNERDRAW | WS_CLIPSIBLINGS,
+            870, 680,
+            136, 118,
+            MAIN_WINDOW,
+            NULL,
+            hInstance,
+            NULL);
+
+        SetWindowPos(
+            BUTTON_T3,
+            HWND_TOPMOST,
+            0, 0,
+            0, 0,
+            SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
+
+        // Start the Windows Message Pump
+        MSG msg;
+        printf("Windows thread complete.\n");
+
+        // Main message loop:
+        while (GetMessage(&msg, MAIN_WINDOW, 0, 0))
+        {
+            TranslateMessage(&msg);
+            DispatchMessage(&msg);
+        }
+
+        return 0;
+    }
+    
+    //****************************************************************************
+    //* Function Name  : LRESULT CALLBACK PageMgr::WindowProc(HWND, UINT, WPARAM, LPARAM)
+    //* Purpose        : Windows Form Callback function
+    //*                 
+    //* Pre-Condition  : None
+    //* Post-Condition : None
+    //* Access         : Public
+    //* Note           :
+    //****************************************************************************
+    LRESULT CALLBACK PageMgr::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+    {
+        switch (uMsg)
+        {
+        //case WM_CREATE:
+        //{
+        //    //HWND hwndStatic = CreateWindow(WC_STATIC, L"",
+        //    //    WS_CHILD | WS_VISIBLE | WS_BORDER,
+        //    //    100, 100, 100, 100,        // Position and dimensions; example only.
+        //    //    TAB_CTRL, NULL, hInstance,    // g_hInst is the global instance handle
+        //    //    NULL);
+        //}
+        //break;
+
+        case WM_COMMAND:
+        {
+            if (HIWORD(wParam) == BN_CLICKED)
+            {
+                RECT crect;
+                HWND button_handle = (HWND)lParam;
+                HDC hdc = GetDC(button_handle);
+
+                if (button_handle == BUTTON_T1)
+                {
+                    PageControlMgr::setButtonPressedData(T1);
+                    ::MessageBox(hwnd, L"Hello World!", L"Testing", MB_OK);
+                }
+            }
+        }
+        break;
+
+        case WM_CTLCOLORBTN:
+        {
+            // Change button text, fonts and background colors
+            HFONT hFont = (HFONT)GetStockObject(DEFAULT_GUI_FONT);
+            LOGFONT logfont;
+            GetObject(hFont, sizeof(LOGFONT), &logfont);
+
+            RECT crect;
+            HBRUSH brush;
+            COLORREF background_color = RGB(sDisplay_config.BUTTON_RED, sDisplay_config.BUTTON_GREEN, sDisplay_config.BUTTON_BLUE);
+            COLORREF text_color = RGB(sDisplay_config.TEXT_RED, sDisplay_config.TEXT_GREEN, sDisplay_config.TEXT_BLUE);
+            HDC hdc = (HDC)wParam;
+            HWND button_handle = (HWND)lParam;
+
+            if (button_handle == BUTTON_T1)
+            {
+                logfont.lfHeight = 2*sDisplay_config.TEXT_SIZE;
+            }
+            else 
+            {
+                logfont.lfHeight = sDisplay_config.TEXT_SIZE;
+            }
+            logfont.lfWeight = 400; // Font weight (100 - 900) in multiples of 100
+            size_t newsize = strlen(sDisplay_config.TEXT_STYLE) + 1;
+            wchar_t* wcstring = new wchar_t[newsize];
+            // Convert char* string to a wchar_t* string.
+            size_t convertedChars = 0;
+            mbstowcs_s(&convertedChars, wcstring, newsize, sDisplay_config.TEXT_STYLE, _TRUNCATE);
+
+            _tcscpy_s(logfont.lfFaceName, wcstring);
+            HFONT hNewFont = CreateFontIndirect(&logfont);
+            HFONT hOldFont = (HFONT)SelectObject(hdc, hNewFont);
+
+            GetClientRect(button_handle, &crect);
+            SetBkColor(hdc, background_color);
+            SetTextColor(hdc, text_color);
+
+            //switch (button_handle)
+            //{
+            //case BUTTON_T1:
+            //case BUTTON_T2:
+            //case BUTTON_T3:
+            //case BUTTON_T4:
+            //case BUTTON_T5:
+            //    DrawText(hdc, L"TEST", _countof(L"TEST") - 1, &crect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+            //    break;
+            //default:
+            //    break;
+            //}
+            if((button_handle == BUTTON_T1)||
+                (button_handle == BUTTON_T2) ||
+                (button_handle == BUTTON_T3) ||
+                (button_handle == BUTTON_T4) ||
+                (button_handle == BUTTON_T5))
+                DrawText(hdc, L"TEST", _countof(L"TEST") - 1, &crect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+            //    
+            /*if (button_handle == backspace_button) DrawText(hdc, L"Backspace", _countof(L"Backspace") - 1, &crect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+            else if (button_handle == space_button) DrawText(hdc, L"Space", _countof(L"Space") - 1, &crect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+            else if (button_handle == enter_button) DrawText(hdc, L"Enter", _countof(L"Enter") - 1, &crect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+            else if (button_handle == DMM_focus_button) DrawText(hdc, L"DMM Focus", _countof(L"DMM Focus") - 1, &crect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+            else if (button_handle == test_button) DrawText(hdc, L"\U0001F845", _countof(L"\U0001F845") - 1, &crect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+            else
+            {
+                CHAR text[2];
+                GetWindowTextA((HWND)lParam, text, 2);
+                DrawText(hdc, (LPCWSTR)text, _countof(text) - 1, &crect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+            }*/
+
+            brush = CreateSolidBrush(background_color);
+
+            // Always select the old font back into the DC
+            SelectObject(hdc, hOldFont);
+
+            return (HRESULT)brush;
+        }
+        break;
+
+        case WM_CTLCOLOREDIT:
+        {
+            //// Change Msg box text and background colors
+            //HDC hdc = (HDC)wParam;
+            //SetTextColor(hdc, RGB(sDisplay_config.TEXT_RED, sDisplay_config.TEXT_GREEN, sDisplay_config.TEXT_BLUE));
+            //SetBkColor(hdc, RGB(sDisplay_config.BUTTON_RED, sDisplay_config.BUTTON_GREEN, sDisplay_config.BUTTON_BLUE));
+            //return (INT_PTR)CreateSolidBrush(RGB(sDisplay_config.BUTTON_RED, sDisplay_config.BUTTON_GREEN, sDisplay_config.BUTTON_BLUE));
+        }
+        break;
+
+        case WM_DRAWITEM:
+        {
+            LPDRAWITEMSTRUCT pDIS = (LPDRAWITEMSTRUCT)lParam;
+            HWND handle = pDIS->hwndItem;
+            HDC hdc = pDIS->hDC;
+            RECT crect;
+            GetClientRect(handle, &crect);
+
+            // Change tab text, fonts and background colors
+            HFONT hFont = (HFONT)GetStockObject(DEFAULT_GUI_FONT);
+            LOGFONT logfont;
+            GetObject(hFont, sizeof(LOGFONT), &logfont);
+
+            HBRUSH brush;
+            COLORREF background_color = RGB(sDisplay_config.BUTTON_RED, sDisplay_config.BUTTON_GREEN, sDisplay_config.BUTTON_BLUE);
+            COLORREF text_color = RGB(sDisplay_config.TEXT_RED, sDisplay_config.TEXT_GREEN, sDisplay_config.TEXT_BLUE);
+
+            logfont.lfHeight = 2 * sDisplay_config.TEXT_SIZE;
+            logfont.lfWeight = 400; // Font weight (100 - 900) in multiples of 100
+            size_t newsize = strlen(sDisplay_config.TEXT_STYLE) + 1;
+            wchar_t* wcstring = new wchar_t[newsize];
+            // Convert char* string to a wchar_t* string.
+            size_t convertedChars = 0;
+            mbstowcs_s(&convertedChars, wcstring, newsize, sDisplay_config.TEXT_STYLE, _TRUNCATE);
+
+            _tcscpy_s(logfont.lfFaceName, wcstring);
+            HFONT hNewFont = CreateFontIndirect(&logfont);
+            HFONT hOldFont = (HFONT)SelectObject(hdc, hNewFont);
+
+            SetBkColor(hdc, background_color);
+            SetTextColor(hdc, text_color);
+
+            if (handle == TAB_CTRL)
+            {
+                WCHAR staticText[7] = { 0 };
+                wcscpy_s(staticText, L"");
+                switch (pDIS->itemID)
+                {
+                    case 0: 
+                    {
+                        wcscpy_s(staticText, L"HSD");
+                    }
+                    break;
+
+                    case 1:
+                    {
+                        wcscpy_s(staticText, L"MAP");
+                    }
+                    break;
+                    case 2:
+                    {
+                        wcscpy_s(staticText, L"EO");
+                    }
+                    break;
+                    case 3:
+                    {
+                        wcscpy_s(staticText, L"NET");
+                    }
+                    break;
+                    case 4:
+                    {
+                        wcscpy_s(staticText, L"STATUS");
+                    }
+                    break;
+                    default:
+                    {
+                        wcscpy_s(staticText, L"");
+                    }
+                    break;
+                }
+                DrawText(hdc, staticText, _countof(staticText) - 1, &(pDIS->rcItem), DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+            }
+            else if (0)
+            {
+
+            }
+
+            brush = CreateSolidBrush(background_color);
+            // Always select the old font back into the DC
+            SelectObject(hdc, hOldFont);
+
+            return (HRESULT)brush;
+        }
+        break;
+
+        case WM_NOTIFY:
+        {
+            HWND handle = ((LPNMHDR)lParam)->hwndFrom;
+            switch (((LPNMHDR)lParam)->code)
+            {
+                case TCN_SELCHANGE:
+                {
+                    handleOSB(TabCtrl_GetCurFocus(handle));
+                }
+                break;
+            }
+        }
+        break;
+
+        case WM_DESTROY:
+            PostQuitMessage(0);
+            return 0;
+
+        case WM_PAINT:
+        {
+            PAINTSTRUCT ps;
+            HDC hdc = BeginPaint(hwnd, &ps);
+
+            //FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
+
+            EndPaint(hwnd, &ps);
+        }
+        return 0;
+        break;
+        case WM_CHAR:
+            //handle key presses (Note: to check which OSB is pressed)
+            sendKey(wParam);
+            break;
+        }
+        return DefWindowProc(hwnd, uMsg, wParam, lParam);
+    }
+
+    //****************************************************************************
+    //* Function Name  : DISPLAY_CONFIG getDisplayConfig(int)
+    //* Purpose        : Update struct with config information
+    //*                 
+    //* Pre-Condition  : None
+    //* Post-Condition : None
+    //* Access         : Public
+    //* Note           :
+    //****************************************************************************
+    DISPLAY_CONFIG PageMgr::getDisplayConfig(void) 
+    {
+        std::string configfile = "MMI_Config.xml";
+
+        // Get config info from XML file.    
+        sDisplay_config = XmlSerializer::parseDisplayConfigXml(XmlSerializer::readXml(configfile));
+
+        return sDisplay_config;
+    }
+    
+    //****************************************************************************
+    //* Function Name  : handleOSB(int)
+    //* Purpose        : Handle OSB presses and send to child page to process
+    //*                 
+    //* Pre-Condition  : None
+    //* Post-Condition : None
+    //* Access         : Public
+    //* Note           :
+    //****************************************************************************
+    void PageMgr::handleOSB(int OSB)
+    {
+        // Performing PAGE Operation
+        // get active page index
+        switch (OSB)
+        {
+        case 0:
+            PageControlMgr::setButtonPressedData(B1);
+            ShowWindow(DMM_WINDOW, SW_SHOWNORMAL);
+            break;
+        case 1:
+            PageControlMgr::setButtonPressedData(B2);
+            ShowWindow(DMM_WINDOW, SW_SHOWNORMAL);
+            break;
+        case 2:
+            PageControlMgr::setButtonPressedData(B3);
+            ShowWindow(DMM_WINDOW, SW_HIDE);
+            break;
+        case 3:
+            PageControlMgr::setButtonPressedData(B4);
+            ShowWindow(DMM_WINDOW, SW_HIDE);
+            break;
+        case 4:
+            PageControlMgr::setButtonPressedData(B5);
+            ShowWindow(DMM_WINDOW, SW_HIDE);
+            break;
+
+        default:
+            break;
+        }
+    }
+    
+    //****************************************************************************
+    //* Function Name  : sendKey()
+    //* Purpose        : Send Keystroke to FlightScene
+    //*                 
+    //* Pre-Condition  : None
+    //* Post-Condition : None
+    //* Access         : Public
+    //* Note           :
+    //****************************************************************************
+    void PageMgr::sendKey(WPARAM wParam)
+    {
+        // Testing for DMM message handling
+        switch (wParam)
+        {
+        case 's':
+            // Map Status Request
+            FS_Comm::SendMsg_Get_Status(0);
+            Sleep(500);
+            break;
+        case '-':
+            // Zoom out
+            MapZoom::ZoomOut();
+            Sleep(100);
+            break;
+        case '=':
+            // Zoom in
+            MapZoom::ZoomIn();
+            Sleep(100);
+            break;
+        default:
+            break;
+        }
+
+        //HFONT hFont = (HFONT)GetStockObject(DEFAULT_GUI_FONT);
+        //LOGFONT logfont;
+        //GetObject(hFont, sizeof(LOGFONT), &logfont);
+        //HDC hdc = GetDC(MsgBox);
+
+        //logfont.lfHeight = sDisplay_config.TEXT_SIZE;
+        //logfont.lfWeight = 400; // Font weight (100 - 900) in multiples of 100
+        //HFONT hNewFont = CreateFontIndirect(&logfont);
+        //HFONT hOldFont = (HFONT)SelectObject(hdc, hNewFont);
+
+        //SendMessage(MsgBox, WM_SETFONT, (WPARAM)hNewFont, TRUE);
+        //PostMessage(MsgBox, WM_CHAR, c, 0);
+        //SetFocus(MsgBox);
+    }
+}	// namespace Disp
