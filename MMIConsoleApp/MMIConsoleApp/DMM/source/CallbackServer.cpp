@@ -27,7 +27,8 @@
 
 #include <../DMM/header/MapTactical.h>
 #include <../DMM/header/SymbolDB.h>
-
+//JSF add namespace to prevent global clash
+using namespace SYMDB;
 // Need to link with Ws2_32.lib
 #pragma comment (lib, "Ws2_32.lib")
 
@@ -476,7 +477,8 @@ void CallbackServer::processSetObjectResponse(CHAR (&pData)[data_buffer_size])
             0, // the channel to send it to. For this kit, assume only 1 channel is configured
             1, // Enable Flag: 1 for enable, 0 for disable
             nFSUID); // FliteScene UID for the Symbol
-        SymbolDB::update_SymbolUID(nKey, nFSUID);
+        //JSF add namespace scope
+        SYMDB::SymbolDB::update_SymbolUID(nKey, nFSUID);
         break;
     // StormScope Symbol
     // Sample_StormScope.cpp creates a stormscope symbol

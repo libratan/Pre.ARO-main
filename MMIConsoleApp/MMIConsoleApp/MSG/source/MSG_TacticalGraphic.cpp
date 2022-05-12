@@ -3,6 +3,8 @@
 #include <../DMM/header/FS_Comm.h>
 #include <string>
 using namespace std;
+//JSF add namespace to prevent glonal clash
+using namespace SYMDB;
 
 void TacticalGraphicMsg::decode_msg(char* pData)
 {
@@ -77,18 +79,21 @@ void TacticalGraphicMsg::update_DB_timestamp()
         // Symbol is new, does not exist in DB yet.
         int x = -1;
         string y = this->get_timestamp();
-        SymbolDB::add_Symbol(message.symbol_id, x, y);
+        //JSF add namespace scope
+        SYMDB::SymbolDB::add_Symbol(message.symbol_id, x, y);
     }
     else
     {
         // Symbol exists in DB, update last_update
-        SymbolDB::update_SymbolTime(message.symbol_id, this->get_timestamp());
+        //JSF add namespace scope
+        SYMDB::SymbolDB::update_SymbolTime(message.symbol_id, this->get_timestamp());
     }
 }
 
 int TacticalGraphicMsg::check_FSUID()
 {
-    return SymbolDB::get_FSUID(message.symbol_id);
+    //JSF add namespace scope
+    return SYMDB::SymbolDB::get_FSUID(message.symbol_id);
 }
 
 bool TacticalGraphicMsg::modcount_valid(void)

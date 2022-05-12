@@ -1,46 +1,121 @@
+//******************************************************************************
+// Copyright XYZ PTE LTD. All Rights Reserved 
+//
+// FILE NAME: SymbolIDB.cpp
+//
+// AUTHOR: xxx
+//
+// DATE: DD/MM/YYYY
+//
+// DESCRIPTION
+// Implementation file
+// Interfaces with the symbol database and manipulates them 
+// 
+// TRACEABILITY : -
+//
+// MODIFICATION HISTORY
+//   DATE              : 
+//   MODIFIER          : 
+//   MODIFICATION      :     
+//
+//******************************************************************************
 #include <../DMM/header/SymbolDB.h>
+using namespace SYMDB;
 
-static std::map<int, SymbolData> sym_map;
-std::map<int, SymbolData> SymbolDB::sym_map = std::map<int, SymbolData>();
+//static std::map<INT, SymbolData> sym_map; //container to hold the map symbols
+std::map<INT, SymbolData> SymbolDB::sym_map = std::map<INT, SymbolData>();
 
-void SymbolDB::add_Symbol(int key, int id, std::string time)
+
+//****************************************************************************
+//* Function Name  : void SymbolDB::add_Symbol(key, id, time)
+//* Purpose        : Add symbol to sym_map
+//*                 
+//* Pre-Condition  : None
+//* Post-Condition : None
+//* Access         : Public
+//* Note           :
+//****************************************************************************
+BOOL SymbolDB::add_Symbol(INT key, 
+                          INT id, 
+                          const std::string& time)
 {
-    SymbolData data = { id, time, };
-    sym_map.insert(std::pair<int, SymbolData>(key, data));
+    SymbolData data = { id, time, }; //data to hold id and time
+    std::pair<std::map<INT, SymbolData>::iterator, BOOL> ret; //to hold return values of insert function
+    
+    //JSF ensure that function for insert function is not type casted to a viod and will return a value
+    ret = sym_map.insert(std::pair<INT, SymbolData>(key, data));
+
+    return ret.second;
 }
-
-void SymbolDB::update_SymbolTime(int key, string time)
+//****************************************************************************
+//* Function Name  : void SymbolDB::update_SymbolTime(key, time)
+//* Purpose        : Update time in sym_map
+//*                 
+//* Pre-Condition  : None
+//* Post-Condition : None
+//* Access         : Public
+//* Note           :
+//****************************************************************************
+void SymbolDB::update_SymbolTime(INT key, 
+                                 const std::string& time)
 {
-    std::map<int, SymbolData>::iterator it = sym_map.find(key);
+    std::map<INT, SymbolData>::iterator it = sym_map.find(key); //it is an iterator
     if (it != sym_map.end())
     {
         it->second.last_update = time;
     }
 }
-
-void SymbolDB::update_SymbolUID(int key, int FUID)
+//****************************************************************************
+//* Function Name  : void SymbolDB::update_SymbolUID(key, FUID)
+//* Purpose        : update symbol ID in sym_map
+//*                 
+//* Pre-Condition  : None
+//* Post-Condition : None
+//* Access         : Public
+//* Note           :
+//****************************************************************************
+void SymbolDB::update_SymbolUID(INT key, INT FUID)
 {
-    std::map<int, SymbolData>::iterator it = sym_map.find(key);
+    std::map<INT, SymbolData>::iterator it = sym_map.find(key); //it is an iterator
     if (it != sym_map.end())
     {
         it->second.fs_FUID = FUID;
     }
 }
-
-void SymbolDB::remove_Symbol(int key)
+//****************************************************************************
+//* Function Name  : void SymbolDB::remove_Symbol(key)
+//* Purpose        : Remove a symbol in sym_map
+//*                 
+//* Pre-Condition  : None
+//* Post-Condition : None
+//* Access         : Public
+//* Note           :
+//****************************************************************************
+size_t SymbolDB::remove_Symbol(INT key)
 {
-    sym_map.erase(key);
+     size_t numremoved = sym_map.erase(key); //returns no of elements removed
+     return numremoved;
 }
-
-int SymbolDB::get_FSUID(int key)
+//****************************************************************************
+//* Function Name  : INT SymbolDB::get_FSUID(key)
+//* Purpose        : Get symbol ID from sym_map
+//*                 
+//* Pre-Condition  : None
+//* Post-Condition : Returns fsuid or -1 if not found
+//* Access         : Public
+//* Note           :
+//****************************************************************************
+INT SymbolDB::get_FSUID(INT key)
 {
-    std::map<int, SymbolData>::iterator it = sym_map.find(key);
+    std::map<INT, SymbolData>::iterator it = sym_map.find(key); //it is an iterator
+    INT result = -1; //to hold FUID value and initialises to not exist in DB first 
+
     if (it != sym_map.end())
     {
         // FSUID found
-        return it->second.fs_FUID;
+        result = it->second.fs_FUID;
     }
 
     // Symbol does not exist in DB, return -1
-    return -1;
+    return result;
 }

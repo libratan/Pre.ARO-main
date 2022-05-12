@@ -1,3 +1,24 @@
+//******************************************************************************
+// Copyright XYZ PTE LTD. All Rights Reserved 
+//
+// FILE NAME: UDPSocket.cpp
+//
+// AUTHOR: xxx
+//
+// DATE: DD/MM/YYYY
+//
+// DESCRIPTION
+// Implementation file
+// Provides functions to manipulate the UDP sockets connections
+// 
+// TRACEABILITY : -
+//
+// MODIFICATION HISTORY
+//   DATE              : 
+//   MODIFIER          : 
+//   MODIFICATION      :     
+//
+//******************************************************************************
 #include <WinSock2.h>
 #include <string.h>
 #include <../DMM/header/Network.h>
